@@ -1,11 +1,6 @@
 package aem.tests;
 
-import java.util.List;
-import java.util.Properties;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import aem.pages.AssetPage;

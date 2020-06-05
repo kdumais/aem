@@ -14,8 +14,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.BeforeSuite;
 
-import com.relevantcodes.extentreports.LogLevel;
-
 public class BaseTest  {
 	public static Properties prop;
 	 		
