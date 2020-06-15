@@ -10,11 +10,14 @@ import aem.utils.Utils;
 
 public class Second extends BaseTest {
 	public WebDriver driver;
+	public Utils ut;
 	
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod
-	public void beforeMethod(String ffProfileName, String browser) {
+	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
+		result.setAttribute("driver", driver);
+		ut = new Utils(driver);
 	}
 	
 	@AfterMethod
@@ -25,7 +28,6 @@ public class Second extends BaseTest {
 	@Test(enabled=true)
 	public void firsta() {
 		System.out.println("firsta");
-		Utils ut = new Utils(driver);
 		driver.get("https://cnn.com");
 		ut.assertPageTitle("CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
@@ -36,8 +38,7 @@ public class Second extends BaseTest {
 	@Test(enabled=true)
 	public void seconda() {
 		System.out.println("seconda");
-		Utils ut = new Utils(driver);
-        driver.get("https://www.washingtonpost.com/");
+		driver.get("https://www.washingtonpost.com/");
 		ut.assertPageTitle("Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
 		ut.sleep(2000);
 		ut.takeScreenShot(prop, "seconda.png");

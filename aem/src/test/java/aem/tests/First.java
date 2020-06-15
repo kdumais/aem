@@ -12,12 +12,14 @@ import aem.utils.Utils;
 
 public class First extends BaseTest {
 	public WebDriver driver;
+	public Utils ut;
 	
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		result.setAttribute("driver", driver);
+		ut = new Utils(driver);
 	}
 	
 	@AfterMethod
@@ -28,7 +30,6 @@ public class First extends BaseTest {
 	@Test(enabled=true)
 	public void firstcf() {
 		System.out.println("firstcf");
-		Utils ut = new Utils(driver);
 		driver.get("https://www.lucidperspectives.com");
         ut.assertPageTitle("Home - Lucid Perspectives");
 		ut.sleep(2000);
@@ -39,7 +40,6 @@ public class First extends BaseTest {
 	@Test(enabled=true)
 	public void secondcf() {
 		System.out.println("secondcf");
-		Utils ut = new Utils(driver);
 		driver.get("https://www.adobe.com");
         ut.assertPageTitle("Adobe: Creative, marketing and document management solutions");
 		ut.sleep(2000);
@@ -49,7 +49,6 @@ public class First extends BaseTest {
 	@Test(enabled=true)
 	public void thirdcf() {
 		System.out.println("thirdcf");
-		Utils ut = new Utils(driver);
 		driver.get(prop.getProperty("appurl"));
 		ut.assertPageTitle("Google");
 		ut.sleep(2000);
