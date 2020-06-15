@@ -1,5 +1,6 @@
 package aem.tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -11,17 +12,20 @@ public class ListenerClass implements ITestListener {
 		// TODO Auto-generated method stub
 		System.out.println("Starting the test!");
 		
+		
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
+		System.out.println("Did I get HERE?");
+		WebDriver driver = (WebDriver) result.getAttribute("driver");
+		System.out.println(driver.getTitle());
+		
 		
 	}
 

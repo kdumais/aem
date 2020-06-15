@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseTest  {
 	public static Properties prop;
-	 		
+	
 	@BeforeSuite
 	public void setProperties()  {
 		prop=new Properties();

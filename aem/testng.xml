@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="5" name="Suite" parallel="methods ">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite thread-count="2" name="Suite" parallel="classes ">
+  <listeners>
+    <listener class-name="aem.tests.ListenerClass"/>
+  </listeners>
   <test name="Test One" >
      <parameter name="ffProfileName"  value="default"/>
      <parameter name="browser" value="firefox"/>
