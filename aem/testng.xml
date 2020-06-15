@@ -3,6 +3,7 @@
 <suite thread-count="5" name="Suite" parallel="methods ">
   <test name="Test One" >
      <parameter name="ffProfileName"  value="default"/>
+     <parameter name="browser" value="firefox"/>
     <classes>
       <class name="aem.tests.First" />
       <class name="aem.tests.Second" />
