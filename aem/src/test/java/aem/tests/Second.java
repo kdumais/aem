@@ -32,7 +32,7 @@ public class Second extends BaseTest {
 		Assert.assertEquals(driver.getTitle(), "CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
 		ut.takeScreenShot("cnn.png"); 
-	}
+	 }
 	
 	@Test(enabled=true)
 	public void washpost() {
