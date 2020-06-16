@@ -27,18 +27,16 @@ public class Second extends BaseTest {
 	}
 	
 	@Test(enabled=true)
-	public void firsta() {
-		System.out.println("firsta");
+	public void cnn() {
 		driver.get("https://cnn.com");
 		Assert.assertEquals(driver.getTitle(), "CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
-		ut.takeScreenShot("firsta.png");
+		ut.takeScreenShot("cnn.png"); 
 		driver.quit();
 	}
 	
 	@Test(enabled=true)
-	public void seconda() {
-		System.out.println("seconda");
+	public void washpost() {
 		driver.get("https://www.washingtonpost.com/");
 		Assert.assertEquals(driver.getTitle(), "Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
 		ut.sleep(2000);

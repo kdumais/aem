@@ -28,31 +28,28 @@ public class First extends BaseTest {
 	}
 		
 	@Test(enabled=true)
-	public void firstcf() {
-		System.out.println("firstcf");
+	public void lucid() {
 		driver.get("https://www.lucidperspectives.com");
 		ut.sleep(2000);
         Assert.assertEquals(driver.getTitle(), "Home - Lucid PerspectivesERROR");
 		ut.sleep(2000);
-		ut.takeScreenShot("firstcf.png");
+		ut.takeScreenShot("lucid.png");
 	}
 		
 	@Test(enabled=true)
-	public void secondcf() {
-		System.out.println("secondcf");
+	public void adobe() {
 		driver.get("https://www.adobe.com");
         Assert.assertEquals(driver.getTitle(), "Adobe: Creative, marketing and document management solutions");
 		ut.sleep(2000);
-		ut.takeScreenShot("secondcf.png");
+		ut.takeScreenShot("adobe.png");
 	}
 		
 	@Test(enabled=true)
-	public void thirdcf() {
-		System.out.println("thirdcf");
-		driver.get(prop.getProperty("appurl"));
+	public void google() {
+		driver.get("https://google.com");
 		Assert.assertEquals(driver.getTitle(), "Google");
 		ut.sleep(2000);
-		ut.takeScreenShot("thirdcf.png");
+		ut.takeScreenShot("google.png");
 	}
 	
 	
