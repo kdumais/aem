@@ -5,6 +5,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import aem.utils.Utils;
+
 public class ListenerClass implements ITestListener {
 
 	@Override
@@ -22,10 +24,10 @@ public class ListenerClass implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println("Did I get HERE?");
-		WebDriver driver = (WebDriver) result.getAttribute("driver");
-		System.out.println(driver.getTitle());
-		
+		//WebDriver driver = (WebDriver) result.getAttribute("driver");
+		Utils ut = (Utils) result.getAttribute("utils");
+		//String temp = result.getName()+"failedtest.png";
+		ut.takeScreenShot(result.getName()+"failedtest.png");
 		
 	}
 

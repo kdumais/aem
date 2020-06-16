@@ -17,7 +17,7 @@ public class Second extends BaseTest {
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		result.setAttribute("driver", driver);
-		ut = new Utils(driver);
+		ut = new Utils(driver, prop);
 	}
 	
 	@AfterMethod
@@ -31,7 +31,7 @@ public class Second extends BaseTest {
 		driver.get("https://cnn.com");
 		ut.assertPageTitle("CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
-		ut.takeScreenShot(prop, "firsta.png");
+		ut.takeScreenShot("firsta.png");
 		driver.quit();
 	}
 	
@@ -41,7 +41,7 @@ public class Second extends BaseTest {
 		driver.get("https://www.washingtonpost.com/");
 		ut.assertPageTitle("Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
 		ut.sleep(2000);
-		ut.takeScreenShot(prop, "seconda.png");
+		ut.takeScreenShot("seconda.png");
 		driver.quit();
 	}
 

@@ -17,9 +17,11 @@ import org.testng.Assert;
 
 public class Utils  {
 	public WebDriver driver;
+	public Properties prop;
 	
-	public Utils(WebDriver driver)  { 
+	public Utils(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
+		this.prop=prop;
 	}
 	
 	
@@ -32,7 +34,7 @@ public class Utils  {
 		}
 	}
 	
-	public void takeScreenShot(Properties prop, String fileName) {
+	public void takeScreenShot(String fileName) {
     	//Convert web driver object to TakeScreenshot
     	TakesScreenshot scrShot =((TakesScreenshot)driver);
     	//Call getScreenshotAs method to create image file

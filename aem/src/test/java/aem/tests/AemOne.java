@@ -13,8 +13,8 @@ public class AemOne extends BaseTest {
 	@Test(enabled=false)
 	public void firstcf(String ffProfileName, String browser) {
 		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver);
-		LogInPage lp = new LogInPage(driver);
+		Utils ut = new Utils(driver, prop);
+		LogInPage lp = new LogInPage(driver, prop);
 		driver.get("http://localhost:6502");
 		
 		System.out.println("********************************************************");
@@ -22,9 +22,9 @@ public class AemOne extends BaseTest {
 						
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
-		ut.takeScreenShot(prop, "login.png");
+		ut.takeScreenShot("login.png");
 		lp.login("admin", "admin");
-		ut.takeScreenShot(prop, "login2.png");
+		ut.takeScreenShot("login2.png");
 		driver.quit();
 
 	}
@@ -33,15 +33,15 @@ public class AemOne extends BaseTest {
 	@Test(enabled=true)
 	public void secondcf(String ffProfileName, String browser) {
 		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver);
-		LogInPage lp = new LogInPage(driver);
+		Utils ut = new Utils(driver, prop);
+		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
-		ut.takeScreenShot(prop, "secondlogina.png");
+		ut.takeScreenShot("secondlogina.png");
 		lp.login("admin", "admin");
-		ut.takeScreenShot(prop, "secondloginb.png");
+		ut.takeScreenShot("secondloginb.png");
 		
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
 		ap.waitForPageToLoad();
@@ -56,15 +56,15 @@ public class AemOne extends BaseTest {
 	@Test(enabled=false)
 	public void thirdcf(String ffProfileName, String browser) {
 		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver);
-		LogInPage lp = new LogInPage(driver);
+		Utils ut = new Utils(driver, prop);
+		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
-		ut.takeScreenShot(prop, "thirdlogina.png");
+		ut.takeScreenShot("thirdlogina.png");
 		lp.login("admin", "admin");
-		ut.takeScreenShot(prop, "thirdloginb.png");
+		ut.takeScreenShot("thirdloginb.png");
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
 				
 		ap.upload("485A7230.jpg");
@@ -78,8 +78,8 @@ public class AemOne extends BaseTest {
 	@Test(enabled=false)
 	public void fourthcf(String ffProfileName, String browser) {
 		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver);
-		LogInPage lp = new LogInPage(driver);
+		Utils ut = new Utils(driver, prop);
+		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");

@@ -30,7 +30,7 @@ public class AssetPage  {
 	
 	public AssetPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
-		ut = new Utils(driver);
+		ut = new Utils(driver, prop);
 		this.prop=prop;
 	}
 	
