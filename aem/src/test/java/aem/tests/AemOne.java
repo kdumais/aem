@@ -1,6 +1,9 @@
 package aem.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import aem.pages.AssetPage;
@@ -8,12 +11,24 @@ import aem.pages.LogInPage;
 import aem.utils.Utils;
 
 public class AemOne extends BaseTest {
+	public WebDriver driver;
+	public Utils ut;
 	
 	@Parameters ({"ffProfileName", "browser"})
+	@BeforeMethod
+	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
+		driver = getDriver(ffProfileName, browser);
+		ut = new Utils(driver, prop);
+		result.setAttribute("utils", ut);
+	}
+	
+	@AfterMethod
+	public void afterMethod(ITestResult result) {
+		driver.quit();
+	}
+	
 	@Test(enabled=false)
-	public void firstcf(String ffProfileName, String browser) {
-		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver, prop);
+	public void firstcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		driver.get("http://localhost:6502");
 		
@@ -25,15 +40,10 @@ public class AemOne extends BaseTest {
 		ut.takeScreenShot("login.png");
 		lp.login("admin", "admin");
 		ut.takeScreenShot("login2.png");
-		driver.quit();
-
 	}
 	
-	@Parameters ({"ffProfileName", "browser"})
 	@Test(enabled=true)
-	public void secondcf(String ffProfileName, String browser) {
-		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver, prop);
+	public void secondcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
@@ -47,16 +57,10 @@ public class AemOne extends BaseTest {
 		ap.waitForPageToLoad();
 		ap.upload("485A7246.jpg");
 		ut.sleep(5000);
-		
-		driver.quit();
-
 	}
 	
-	@Parameters ({"ffProfileName", "browser"})
 	@Test(enabled=false)
-	public void thirdcf(String ffProfileName, String browser) {
-		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver, prop);
+	public void thirdcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
@@ -69,16 +73,10 @@ public class AemOne extends BaseTest {
 				
 		ap.upload("485A7230.jpg");
 		ut.sleep(5000);
-		
-		driver.quit();
-
 	}
 	
-	@Parameters ({"ffProfileName", "browser"})
 	@Test(enabled=false)
-	public void fourthcf(String ffProfileName, String browser) {
-		WebDriver driver = getDriver(ffProfileName, browser);
-		Utils ut = new Utils(driver, prop);
+	public void fourthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
@@ -91,8 +89,5 @@ public class AemOne extends BaseTest {
 				
 		ap.upload("485A7240.jpg");
 		ut.sleep(5000);
-		
-		driver.quit();
-
 	}
 }
