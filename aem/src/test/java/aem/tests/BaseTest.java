@@ -13,13 +13,16 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.BeforeSuite;
+import org.testng.asserts.SoftAssert;
 
 public class BaseTest  {
 	public static Properties prop;
+	public static SoftAssert softAssert;
 	
 	@BeforeSuite
-	public void setProperties()  {
+	public void beforeSuite()  {
 		prop=new Properties();
+		softAssert = new SoftAssert();
 		try {
 			FileInputStream fis=new FileInputStream("test.properties");
 			prop.load(fis);

@@ -18,7 +18,6 @@ public class First extends BaseTest {
 	@BeforeMethod
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
-		result.setAttribute("driver", driver);
 		ut = new Utils(driver, prop);
 		result.setAttribute("utils", ut);
 	}
@@ -32,17 +31,17 @@ public class First extends BaseTest {
 	public void firstcf() {
 		System.out.println("firstcf");
 		driver.get("https://www.lucidperspectives.com");
-        ut.assertPageTitle("Home - Lucid Perspectives");
+		ut.sleep(2000);
+        Assert.assertEquals(driver.getTitle(), "Home - Lucid PerspectivesERROR");
 		ut.sleep(2000);
 		ut.takeScreenShot("firstcf.png");
-		Assert.assertEquals(5, 7);
 	}
 		
 	@Test(enabled=true)
 	public void secondcf() {
 		System.out.println("secondcf");
 		driver.get("https://www.adobe.com");
-        ut.assertPageTitle("Adobe: Creative, marketing and document management solutions");
+        Assert.assertEquals(driver.getTitle(), "Adobe: Creative, marketing and document management solutions");
 		ut.sleep(2000);
 		ut.takeScreenShot("secondcf.png");
 	}
@@ -51,7 +50,7 @@ public class First extends BaseTest {
 	public void thirdcf() {
 		System.out.println("thirdcf");
 		driver.get(prop.getProperty("appurl"));
-		ut.assertPageTitle("Google");
+		Assert.assertEquals(driver.getTitle(), "Google");
 		ut.sleep(2000);
 		ut.takeScreenShot("thirdcf.png");
 	}

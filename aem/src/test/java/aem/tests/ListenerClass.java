@@ -1,6 +1,5 @@
 package aem.tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -26,7 +25,6 @@ public class ListenerClass implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		//WebDriver driver = (WebDriver) result.getAttribute("driver");
 		Utils ut = (Utils) result.getAttribute("utils");
-		//String temp = result.getName()+"failedtest.png";
 		ut.takeScreenShot(result.getName()+"failedtest.png");
 		
 	}

@@ -1,6 +1,7 @@
 package aem.tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,8 +17,8 @@ public class Second extends BaseTest {
 	@BeforeMethod
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
-		result.setAttribute("driver", driver);
 		ut = new Utils(driver, prop);
+		result.setAttribute("utils", ut);
 	}
 	
 	@AfterMethod
@@ -29,7 +30,7 @@ public class Second extends BaseTest {
 	public void firsta() {
 		System.out.println("firsta");
 		driver.get("https://cnn.com");
-		ut.assertPageTitle("CNN - Breaking News, Latest News and Videos");
+		Assert.assertEquals(driver.getTitle(), "CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
 		ut.takeScreenShot("firsta.png");
 		driver.quit();
@@ -39,7 +40,7 @@ public class Second extends BaseTest {
 	public void seconda() {
 		System.out.println("seconda");
 		driver.get("https://www.washingtonpost.com/");
-		ut.assertPageTitle("Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
+		Assert.assertEquals(driver.getTitle(), "Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
 		ut.sleep(2000);
 		ut.takeScreenShot("seconda.png");
 		driver.quit();
