@@ -32,7 +32,6 @@ public class Second extends BaseTest {
 		Assert.assertEquals(driver.getTitle(), "CNN - Breaking News, Latest News and Videos");
 		ut.sleep(2000);
 		ut.takeScreenShot("cnn.png"); 
-		driver.quit();
 	}
 	
 	@Test(enabled=true)
@@ -41,7 +40,6 @@ public class Second extends BaseTest {
 		Assert.assertEquals(driver.getTitle(), "Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
 		ut.sleep(2000);
 		ut.takeScreenShot("seconda.png");
-		driver.quit();
 	}
 
 }
