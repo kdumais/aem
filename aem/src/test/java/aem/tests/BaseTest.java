@@ -45,8 +45,8 @@ public class BaseTest  {
 			FirefoxProfile fp;
 			ProfilesIni pi = new ProfilesIni();
 		    fp = pi.getProfile(ffProfileName);
+		    fp.setPreference("security.default_personal_cert",  "Select Automatically");
 		    FirefoxOptions options = new FirefoxOptions();
-		    //options.addPreference("dom.webnotifications.enabled",false);
 		    options.setHeadless(Boolean.valueOf(prop.getProperty("headless")));
 	        options.setProfile(fp);
 	        options.setBinary(prop.getProperty("firefoxloc"));
@@ -57,7 +57,6 @@ public class BaseTest  {
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(Boolean.valueOf(prop.getProperty("headless")));
 	        driver = new ChromeDriver(options);
-			
 		}else {
 			driver = null;
 		}
