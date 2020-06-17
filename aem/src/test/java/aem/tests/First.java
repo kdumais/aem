@@ -27,7 +27,7 @@ public class First extends BaseTest {
 		driver.quit();
 	}
 		
-	@Test(enabled=true)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void lucid() {
 		driver.get("https://www.lucidperspectives.com");
 		ut.sleep(2000);
@@ -36,7 +36,7 @@ public class First extends BaseTest {
 		ut.takeScreenShot("lucid.png");
 	}
 		
-	@Test(enabled=true)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void adobe() {
 		driver.get("https://www.adobe.com");
         Assert.assertEquals(driver.getTitle(), "Adobe: Creative, marketing and document management solutions");

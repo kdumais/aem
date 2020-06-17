@@ -14,19 +14,19 @@ public class Second extends BaseTest {
 	public Utils ut;
 	
 	@Parameters ({"ffProfileName", "browser"})
-	@BeforeMethod
+	@BeforeMethod(groups= {"Important"})
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
 		result.setAttribute("utils", ut);
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups= {"Important"})
 	public void afterMethod(ITestResult result) {
 		driver.quit();
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void cnn() {
 		driver.get("https://cnn.com");
 		Assert.assertEquals(driver.getTitle(), "CNN - Breaking News, Latest News and Videos");
@@ -34,7 +34,7 @@ public class Second extends BaseTest {
 		ut.takeScreenShot("cnn.png"); 
 	 }
 	
-	@Test(enabled=true)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void washpost() {
 		driver.get("https://www.washingtonpost.com/");
 		Assert.assertEquals(driver.getTitle(), "Washington Post: Breaking News, World, US, DC News & Analysis - The Washington Post");
