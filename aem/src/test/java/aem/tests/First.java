@@ -15,14 +15,14 @@ public class First extends BaseTest {
 	public Utils ut;
 	
 	@Parameters ({"ffProfileName", "browser"})
-	@BeforeMethod
+	@BeforeMethod(groups= {"Important"})
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
 		result.setAttribute("utils", ut);
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups= {"Important"})
 	public void afterMethod() {
 		driver.quit();
 	}
@@ -44,7 +44,7 @@ public class First extends BaseTest {
 		ut.takeScreenShot("adobe.png");
 	}
 		
-	@Test(enabled=true)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void google() {
 		driver.get("https://google.com");
 		Assert.assertEquals(driver.getTitle(), "Google");

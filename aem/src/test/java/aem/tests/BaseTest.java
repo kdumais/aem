@@ -19,7 +19,7 @@ public class BaseTest  {
 	public static Properties prop;
 	public static SoftAssert softAssert;
 	
-	@BeforeSuite
+	@BeforeSuite(groups= {"Important"})
 	public void beforeSuite()  {
 		prop=new Properties();
 		softAssert = new SoftAssert();

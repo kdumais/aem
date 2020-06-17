@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite thread-count="2" name="Suite" parallel="classes ">
+  <groups>
+    <run>
+      <include name="Important"/>
+      <exclude name="Not Important"/>
+    </run>
+  </groups>
   <listeners>
     <listener class-name="aem.tests.ListenerClass"/>
   </listeners>
