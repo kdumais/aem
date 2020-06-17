@@ -1,6 +1,8 @@
 package aem.tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -27,7 +29,7 @@ public class First extends BaseTest {
 		driver.quit();
 	}
 		
-	@Test(enabled=true, groups= {"Important"}, priority=1)
+	@Test(enabled=true, groups= {"Not Important"}, priority=1)
 	public void lucid() {
 		driver.get("https://www.lucidperspectives.com");
 		ut.sleep(2000);
@@ -36,7 +38,7 @@ public class First extends BaseTest {
 		ut.takeScreenShot("lucid.png");
 	}
 		
-	@Test(enabled=true, groups= {"Important"}, priority=1)
+	@Test(enabled=true, groups= {"Not Important"}, priority=1)
 	public void adobe() {
 		driver.get("https://www.adobe.com");
         Assert.assertEquals(driver.getTitle(), "Adobe: Creative, marketing and document management solutions");
@@ -50,6 +52,14 @@ public class First extends BaseTest {
 		Assert.assertEquals(driver.getTitle(), "Google");
 		ut.sleep(2000);
 		ut.takeScreenShot("google.png");
+		
+		By boxBy = By.xpath("//input[@name='q']");
+		WebElement element = driver.findElement(boxBy);
+		ut.addBorder(element, driver);
+				
+		ut.generateAlert(driver, "Please pay very close attendtion to the input box.");
+		
+		ut.sleep(10000);
 	}
 	
 	

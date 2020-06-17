@@ -2,6 +2,7 @@ package aem.utils;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -79,6 +80,16 @@ public class Utils  {
 	
 	public void assertElementNotPresent(By by) {
 		Assert.assertTrue(driver.findElements(by).size()==0);
+	}
+	
+	public void addBorder(WebElement element, WebDriver driver ) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].style.border='3px solid red'", element);
+	}
+	
+	public void generateAlert(WebDriver driver, String message ) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("alert('"+message+"')");
 	}
 	
 	
