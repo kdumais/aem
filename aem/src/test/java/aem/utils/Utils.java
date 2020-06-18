@@ -82,18 +82,41 @@ public class Utils  {
 		Assert.assertTrue(driver.findElements(by).size()==0);
 	}
 	
-	public void addBorder(WebElement element, WebDriver driver ) {
+	public void addBorder(WebElement element) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 	
-	public void generateAlert(WebDriver driver, String message ) {
+	public void generateAlert(String message ) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("alert('"+message+"')");
 	}
 	
+	public void refreshBrowserByJS() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("history.go(0)");
+	}
 	
+	public String getTitleByJS() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		String title = js.executeScript("return document.title").toString();
+		return title;
+	}
 	
+	public String getPageInnerText() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		String pageText = js.executeScript("return document.documentElement.innerText").toString();
+		return pageText;
+	}
 	
+	public void scrollPageDown() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
+	
+	public void scrollIntoView(WebElement element) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 	
 }

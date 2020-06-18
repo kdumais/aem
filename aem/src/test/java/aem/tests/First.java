@@ -9,7 +9,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import aem.utils.Utils;
 
 public class First extends BaseTest {
@@ -55,11 +54,23 @@ public class First extends BaseTest {
 		
 		By boxBy = By.xpath("//input[@name='q']");
 		WebElement element = driver.findElement(boxBy);
-		ut.addBorder(element, driver);
+		ut.addBorder(element);
 				
-		ut.generateAlert(driver, "Please pay very close attendtion to the input box.");
+		ut.generateAlert("Please pay very close attendtion to the input box.");
 		
-		ut.sleep(10000);
+		ut.sleep(5000);
+		driver.switchTo().alert().accept();
+		ut.sleep(2000);
+		ut.refreshBrowserByJS();
+		System.out.println("***************************");
+		System.out.println(ut.getTitleByJS());
+		ut.scrollPageDown();
+		ut.sleep(5000);
+		System.out.println(ut.getPageInnerText());
+		
+		By boxBy1 = By.xpath("//input[@name='q']");
+		WebElement element1 = driver.findElement(boxBy1);
+		ut.scrollIntoView(element1);
 	}
 	
 	
