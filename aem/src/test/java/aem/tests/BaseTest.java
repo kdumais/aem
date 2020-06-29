@@ -14,15 +14,20 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.BeforeSuite;
 import org.testng.asserts.SoftAssert;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.lf5.LogLevel;
 
 public class BaseTest  {
 	public static Properties prop;
-	public static SoftAssert softAssert;
 	
 	@BeforeSuite(groups= {"Important"})
 	public void beforeSuite()  {
+		//Logger log = Logger.getLogger("Log");
+		//log.debug("this is a start");
+				
+		
 		prop=new Properties();
-		softAssert = new SoftAssert();
 		try {
 			FileInputStream fis=new FileInputStream("test.properties");
 			prop.load(fis);
@@ -56,6 +61,7 @@ public class BaseTest  {
 			System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
 			ChromeOptions options = new ChromeOptions();
 			options.setHeadless(Boolean.valueOf(prop.getProperty("headless")));
+			System.setProperty("webdriver.chrome.verboseLogging", "true");
 	        driver = new ChromeDriver(options);
 		}else {
 			driver = null;

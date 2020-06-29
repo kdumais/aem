@@ -1,5 +1,6 @@
 package aem.tests;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,18 +10,26 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import aem.utils.Utils;
 
 public class First extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
+	public static SoftAssert softAssert;
+	
 	
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod(groups= {"Important"})
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
+		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
+		result.setAttribute("browser", browser);
+		result.setAttribute("logger", log);
+		softAssert = new SoftAssert();
 	}
 	
 	@AfterMethod(groups= {"Important"})
@@ -28,13 +37,14 @@ public class First extends BaseTest {
 		driver.quit();
 	}
 		
-	@Test(enabled=true, groups= {"Not Important"}, priority=1)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void lucid() {
 		driver.get("https://www.lucidperspectives.com");
 		ut.sleep(2000);
-        Assert.assertEquals(driver.getTitle(), "Home - Lucid PerspectivesERROR");
+        softAssert.assertEquals(driver.getTitle(), "Home - Lucid PerspectivesERROR");
 		ut.sleep(2000);
 		ut.takeScreenShot("lucid.png");
+		softAssert.assertAll();
 	}
 		
 	@Test(enabled=true, groups= {"Not Important"}, priority=1)
@@ -45,7 +55,7 @@ public class First extends BaseTest {
 		ut.takeScreenShot("adobe.png");
 	}
 		
-	@Test(enabled=true, groups= {"Important"}, priority=1)
+	@Test(enabled=true, groups= {"Not Important"}, priority=1)
 	public void google() {
 		driver.get("https://google.com");
 		Assert.assertEquals(driver.getTitle(), "Google");

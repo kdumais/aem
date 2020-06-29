@@ -12,7 +12,7 @@
   </listeners>
   <test name="Test One" >
      <parameter name="ffProfileName"  value="default"/>
-     <parameter name="browser" value="firefox"/>
+     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="aem.tests.First" />
       <class name="aem.tests.Second" />
