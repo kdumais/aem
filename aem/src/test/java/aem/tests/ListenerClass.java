@@ -18,6 +18,14 @@ public class ListenerClass implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
+		Logger log = (Logger) result.getAttribute("logger");
+		String browser = (String) result.getAttribute("browser");
+		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
+		String test = result.getTestContext().getName();
+		String instance = result.getInstanceName();
+		String method = result.getName();
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser: "+browser+" Status: SUCCESS";
+		log.debug("This triggers on test success: "+message);
 	}
 
 	@Override

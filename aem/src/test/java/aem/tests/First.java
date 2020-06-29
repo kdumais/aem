@@ -25,7 +25,7 @@ public class First extends BaseTest {
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
-		Logger log = Logger.getLogger("Log");
+		Logger log = Logger.getLogger(Logger.class.getName());
 		result.setAttribute("utils", ut);
 		result.setAttribute("browser", browser);
 		result.setAttribute("logger", log);
@@ -47,7 +47,7 @@ public class First extends BaseTest {
 		softAssert.assertAll();
 	}
 		
-	@Test(enabled=true, groups= {"Not Important"}, priority=1)
+	@Test(enabled=true, groups= {"Important"}, priority=1)
 	public void adobe() {
 		driver.get("https://www.adobe.com");
         Assert.assertEquals(driver.getTitle(), "Adobe: Creative, marketing and document management solutions");
