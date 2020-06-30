@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.BeforeSuite;
-import org.testng.asserts.SoftAssert;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.lf5.LogLevel;
 
 public class BaseTest  {
 	public static Properties prop;

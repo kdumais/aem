@@ -4,47 +4,63 @@ import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import aem.tests.BaseTest;
-
 import aem.utils.Utils;
 
 public class ListenerClass implements ITestListener {
-
+	
 	@Override
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
 		Logger log = (Logger) result.getAttribute("logger");
 		String browser = (String) result.getAttribute("browser");
 		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
 		String test = result.getTestContext().getName();
 		String instance = result.getInstanceName();
 		String method = result.getName();
-		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser: "+browser+" Status: SUCCESS";
-		log.debug("This triggers on test success: "+message);
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: START";
+		log.debug("Test Start: "+message);
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		Logger log = (Logger) result.getAttribute("logger");
+		String browser = (String) result.getAttribute("browser");
+		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
+		String test = result.getTestContext().getName();
+		String instance = result.getInstanceName();
+		String method = result.getName();
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: SUCCESS";
+		log.debug("Test Success: "+message);
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		Utils ut = (Utils) result.getAttribute("utils");
-		String browser = (String) result.getAttribute("browser");
 		Logger log = (Logger) result.getAttribute("logger");
+		String browser = (String) result.getAttribute("browser");
+		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
+		String test = result.getTestContext().getName();
+		String instance = result.getInstanceName();
+		String method = result.getName();
 		ut.takeScreenShot(result.getName()+"_failedtest_"+browser+".png");
-		log.debug("This triggers on test failure.");
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: FAILURE";
+		log.debug("Test Failure: "+message);
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		Logger log = (Logger) result.getAttribute("logger");
+		String browser = (String) result.getAttribute("browser");
+		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
+		String test = result.getTestContext().getName();
+		String instance = result.getInstanceName();
+		String method = result.getName();
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: SKIPPED";
+		log.debug("Test Skipped: "+message);
 	}
 
 	@Override
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 	}
 
 	@Override

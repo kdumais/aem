@@ -25,7 +25,7 @@ public class First extends BaseTest {
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
-		Logger log = Logger.getLogger(Logger.class.getName());
+		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
 		result.setAttribute("browser", browser);
 		result.setAttribute("logger", log);
