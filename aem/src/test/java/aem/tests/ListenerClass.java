@@ -16,7 +16,7 @@ public class ListenerClass implements ITestListener {
 		String test = result.getTestContext().getName();
 		String instance = result.getInstanceName();
 		String method = result.getName();
-		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: START";
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Start: "+message);
 	}
 
@@ -28,7 +28,7 @@ public class ListenerClass implements ITestListener {
 		String test = result.getTestContext().getName();
 		String instance = result.getInstanceName();
 		String method = result.getName();
-		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: SUCCESS";
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Success: "+message);
 	}
 
@@ -42,7 +42,7 @@ public class ListenerClass implements ITestListener {
 		String instance = result.getInstanceName();
 		String method = result.getName();
 		ut.takeScreenShot(result.getName()+"_failedtest_"+browser+".png");
-		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: FAILURE";
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Failure: "+message);
 	}
 
@@ -54,7 +54,7 @@ public class ListenerClass implements ITestListener {
 		String test = result.getTestContext().getName();
 		String instance = result.getInstanceName();
 		String method = result.getName();
-		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser+" Status: SKIPPED";
+		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Skipped: "+message);
 	}
 

@@ -19,10 +19,6 @@ public class BaseTest  {
 	
 	@BeforeSuite(groups= {"Important"})
 	public void beforeSuite()  {
-		//Logger log = Logger.getLogger("Log");
-		//log.debug("this is a start");
-				
-		
 		prop=new Properties();
 		try {
 			FileInputStream fis=new FileInputStream("test.properties");
