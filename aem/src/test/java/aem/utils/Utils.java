@@ -58,6 +58,12 @@ public class Utils  {
 		return count;
 	}
 	
+	public int getNumberOfElements(By by) {
+		List<WebElement> list = driver.findElements(by);
+		int count = list.size();
+		return count;
+	}
+	
 	public void click(By by) {
 		FluentWait<WebDriver> wait = new WebDriverWait(driver, 10);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -66,7 +72,9 @@ public class Utils  {
 	}
 		
 	public void sendKeys(By by, String text) {
-		new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by)).sendKeys(text);
+		WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+		element.clear();
+		element.sendKeys(text);
 	}
 	
 	public void assertPageTitle(String expected) {

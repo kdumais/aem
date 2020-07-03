@@ -2,6 +2,7 @@ package aem.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,7 +28,7 @@ public class AssetPage  {
 	public By createButtonBy = By.xpath("//coral-button-label[contains(text(),'Create')]//parent::button");
 	public By filesListItemBy = By.xpath("//a[@icon='upload']");
 	By uploadButton2By = By.xpath("//coral-button-label[contains(text(),'Upload')]");
-	
+		
 	public AssetPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
 		ut = new Utils(driver, prop);
@@ -69,6 +70,66 @@ public class AssetPage  {
 		wait.until(ExpectedConditions.invisibilityOfAllElements(elements));
 		
 	}
+	
+	public void clickAssetCard(String text) {
+		By by = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+		ut.click(by);
+	}
+	
+	 public void selectCard(String text) {
+		Actions actions = new Actions(driver);
+		By cardBy = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+		WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+		actions.moveToElement(cardElement);
+		actions.build().perform();
+		By selectIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Select']");
+		ut.click(selectIconBy);
+	 }
+	 
+	 public void propertiesCard(String text) {
+			Actions actions = new Actions(driver);
+			By cardBy = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+			WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			actions.moveToElement(cardElement);
+			actions.build().perform();
+			By propertiesIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
+			ut.click(propertiesIconBy);
+		 }
+	 
+	 public void setTitle(String text) {
+		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/dc:title']");
+		 ut.sendKeys(fieldBy, text);
+	 }
+	 
+	 public void setDescription(String text) {
+		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/dc:description']");
+		 ut.sendKeys(fieldBy, text);
+	 }
+	 	 
+	 public void setOnTime(String text) {
+		 By fieldBy = By.xpath("//coral-datepicker[@name='./jcr:content/onTime']/input[@is='coral-textfield']");
+		 ut.sendKeys(fieldBy, text); 
+	 }
+	 
+	 public void setOffTime(String text) {
+		 By fieldBy = By.xpath("//coral-datepicker[@name='./jcr:content/offTime']/input[@is='coral-textfield']");
+		 ut.sendKeys(fieldBy, text); 
+	 }
+	 
+	 
+	 public void selectLanguage(String text) {
+		 By fieldBy = By.xpath("//coral-select[@name='./jcr:content/metadata/dc:language']/button");
+		 ut.click(fieldBy);
+		 By fieldBy2 = By.xpath("//coral-selectlist-item[contains(text(),'"+text+"')]");
+		 ut.click(fieldBy2); 
+	 }
+	 
+	 public int getNumberOfTags() {
+		 By fieldBy = By.xpath("(//coral-taglist)[3 ]/coral-tag/coral-tag-label");
+		 List<WebElement> temp = driver.findElements(fieldBy);
+		 return temp.size();
+		
+	 }
 		
 }
 	
