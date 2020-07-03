@@ -139,9 +139,17 @@ public class AssetPage  {
 			tags.add(element.getText());
 		 }
 		 return tags.contains(value);
-		 
-		 
-	}
+	 }
+	 
+	 public void setLocation(String text) {
+		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/Iptc4xmpExt:LocationShown']");
+		 ut.sendKeys(fieldBy, text); 
+	 }
+	 
+	 public void setCreatorTool(String text) {
+		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/xmp:CreatorTool']");
+		 ut.sendKeys(fieldBy, text); 
+	 }
 		
 }
 	

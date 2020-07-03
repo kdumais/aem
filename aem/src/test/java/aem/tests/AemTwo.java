@@ -64,7 +64,8 @@ public class AemTwo extends BaseTest {
 		System.out.println(ap.containsTag("lake"));
 		System.out.println(ap.containsTag("lakea"));
 		
-		
+		ap.setLocation("My Location");
+		ap.setCreatorTool("Creator Tool");
 		ut.sleep(5000);
 	}
 		
