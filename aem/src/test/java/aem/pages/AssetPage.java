@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -126,10 +127,21 @@ public class AssetPage  {
 	 
 	 public int getNumberOfTags() {
 		 By fieldBy = By.xpath("(//coral-taglist)[3 ]/coral-tag/coral-tag-label");
-		 List<WebElement> temp = driver.findElements(fieldBy);
-		 return temp.size();
-		
+		 List<WebElement> tags = driver.findElements(fieldBy);
+		 return tags.size();
 	 }
+	 
+	 public boolean containsTag(String value) {
+		 By fieldBy = By.xpath("(//coral-taglist)[3]/coral-tag/coral-tag-label");
+		 List<WebElement> elementTags = driver.findElements(fieldBy);
+		 List<String> tags = new ArrayList<String>();
+		 for (WebElement  element : elementTags) {
+			tags.add(element.getText());
+		 }
+		 return tags.contains(value);
+		 
+		 
+	}
 		
 }
 	

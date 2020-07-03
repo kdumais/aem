@@ -61,8 +61,8 @@ public class AemTwo extends BaseTest {
 		ap.selectLanguage("English");
 		System.out.println(ap.getNumberOfTags());
 		
-		
-		
+		System.out.println(ap.containsTag("lake"));
+		System.out.println(ap.containsTag("lakea"));
 		
 		
 		ut.sleep(5000);
