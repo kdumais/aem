@@ -39,7 +39,7 @@ public class AemTwo extends BaseTest {
 		driver.quit();
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void asset() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);

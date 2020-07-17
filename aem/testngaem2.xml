@@ -8,7 +8,7 @@
     <parameter name="ffProfileName" value="default"/>
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="aem.tests.AemTwo" />
+      <class name="aem.tests.AemOne" />
     </classes>
   </test> <!-- Test -->
   

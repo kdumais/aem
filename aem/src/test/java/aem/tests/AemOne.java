@@ -50,7 +50,7 @@ public class AemOne extends BaseTest {
 		ut.takeScreenShot("login2.png");
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void secondcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
@@ -96,6 +96,20 @@ public class AemOne extends BaseTest {
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
 				
 		ap.upload("485A7240.jpg");
+		ut.sleep(5000);
+	}
+	
+	@Test(enabled=true)
+	public void fifthcf() {
+		LogInPage lp = new LogInPage(driver, prop);
+		AssetPage ap = new AssetPage(driver, prop);
+		driver.get("http://localhost:6502");
+        ut.assertPageTitle("AEM Sign In");
+        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+		lp.login("admin", "admin");
+		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
+				
+		
 		ut.sleep(5000);
 	}
 }
