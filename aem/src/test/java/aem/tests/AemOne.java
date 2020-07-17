@@ -108,7 +108,9 @@ public class AemOne extends BaseTest {
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
-				
+		
+		ap.clickContentOnlyButton();		
+		ap.clickListFilter();
 		
 		ut.sleep(5000);
 	}

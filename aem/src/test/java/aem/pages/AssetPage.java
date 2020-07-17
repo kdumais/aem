@@ -150,6 +150,16 @@ public class AssetPage  {
 		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/xmp:CreatorTool']");
 		 ut.sendKeys(fieldBy, text); 
 	 }
+	 
+	 public void clickContentOnlyButton() {
+		 By contentOnlyButtonBy = By.xpath("//button[contains(@title,'Content Only')]");
+		 ut.click(contentOnlyButtonBy);
+	 }
+	 
+	 public void clickListFilter() {
+		 By filterChoice = By.xpath("//coral-selectlist-item[contains(text(),'Filter')]");
+		 ut.click(filterChoice);
+	 }
 		
 }
 	
