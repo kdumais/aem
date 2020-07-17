@@ -157,8 +157,13 @@ public class AssetPage  {
 	 }
 	 
 	 public void clickListFilter() {
-		 By filterChoice = By.xpath("//coral-selectlist-item[contains(text(),'Filter')]");
-		 ut.click(filterChoice);
+		 By filterChoiceBy = By.xpath("//coral-selectlist-item[contains(text(),'Filter')]");
+		 ut.click(filterChoiceBy);
+	 }
+	 
+	 public void clickAccordion(String text) {
+		 By accordionBy = By.xpath("//coral-accordion-item-label[contains(text(),'"+text+"')]");
+		 ut.click(accordionBy);
 	 }
 		
 }

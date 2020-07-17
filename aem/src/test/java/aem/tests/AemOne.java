@@ -111,6 +111,17 @@ public class AemOne extends BaseTest {
 		
 		ap.clickContentOnlyButton();		
 		ap.clickListFilter();
+		ap.clickAccordion("File Type");
+		ap.clickAccordion("File Size");
+		ap.clickAccordion("Last Modified");
+		ap.clickAccordion("Status");
+		ap.clickAccordion("Orientation");
+		ap.clickAccordion("Style");
+		ap.clickAccordion("Insights");
+		ap.clickAccordion("Adobe Stock");
+		ap.clickAccordion("UGC");
+		
+		
 		
 		ut.sleep(5000);
 	}
