@@ -83,7 +83,7 @@ public class AemOne extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void fourthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
@@ -96,10 +96,11 @@ public class AemOne extends BaseTest {
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
 				
 		ap.upload("485A7240.jpg");
-		ut.sleep(5000);
+		ap.upload("485A7229.jpg");
+		ut.sleep(10000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void fifthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
@@ -111,15 +112,18 @@ public class AemOne extends BaseTest {
 		
 		ap.clickContentOnlyButton();		
 		ap.clickListFilter();
-		ap.clickAccordion("File Type");
+		//ap.clickAccordion("File Type");
 		ap.clickAccordion("File Size");
-		ap.clickAccordion("Last Modified");
-		ap.clickAccordion("Status");
-		ap.clickAccordion("Orientation");
-		ap.clickAccordion("Style");
-		ap.clickAccordion("Insights");
-		ap.clickAccordion("Adobe Stock");
-		ap.clickAccordion("UGC");
+		//ap.clickAccordion("Last Modified");
+		//ap.clickAccordion("Status");
+		//ap.clickAccordion("Orientation");
+		//ap.clickAccordion("Style");
+		//ap.clickAccordion("Insights");
+		//ap.clickAccordion("Adobe Stock");
+		//ap.clickAccordion("UGC");
+		ut.sleep(60000);
+		ap.enterMinMaxFileSize("1", "2");
+		
 		
 		
 		

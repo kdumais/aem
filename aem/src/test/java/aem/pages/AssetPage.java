@@ -45,6 +45,9 @@ public class AssetPage  {
 		 StringSelection stringSelection = new StringSelection(prop.getProperty("assetfiledir")+fileName);
 		 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		 clipboard.setContents(stringSelection, stringSelection);
+		 
+		 ut.sleep(2000);
+		 
 		 try {
 				Robot rb= new Robot();
 				rb.keyPress(KeyEvent.VK_CONTROL);
@@ -58,9 +61,7 @@ public class AssetPage  {
 				e.printStackTrace();
 			}
 		 ut.click(uploadButton2By);
-		 
-			 		 
-		
+		 ut.sleep(2000);
 	}
 	
 	public void waitForPageToLoad() {
@@ -165,6 +166,13 @@ public class AssetPage  {
 		 By accordionBy = By.xpath("//coral-accordion-item-label[contains(text(),'"+text+"')]");
 		 ut.click(accordionBy);
 	 }
+	 
+	 public void enterMinMaxFileSize(String min, String max) {
+		 By minSizeBy = By.xpath("//input[@id='coral-id-188']");
+		 By maxSizeBy = By.xpath("//input[@id='coral-id-189']");
+		 driver.findElement(minSizeBy).sendKeys(min);
+		 driver.findElement(maxSizeBy).sendKeys(max);
+	}
 		
 }
 	
