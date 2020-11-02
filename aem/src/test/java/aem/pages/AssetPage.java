@@ -61,7 +61,7 @@ public class AssetPage  {
 				e.printStackTrace();
 			}
 		 ut.click(uploadButton2By);
-		 ut.sleep(2000);
+		 ut.sleep(20000);
 	}
 	
 	public void waitForPageToLoad() {
