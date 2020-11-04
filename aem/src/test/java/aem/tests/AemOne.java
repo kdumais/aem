@@ -221,7 +221,7 @@ public class AemOne extends BaseTest {
 		ap.propertiesCard("485A7214");
 		//ut.sleep(3000);
 		ap.setTitle("My New Title");
-		
+		ap.clickSaveAndClose();
 		ut.sleep(10000);
 	}
 }

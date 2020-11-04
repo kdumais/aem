@@ -152,6 +152,11 @@ public class AssetPage  {
 		 ut.sendKeys(fieldBy, text); 
 	 }
 	 
+	 public void clickSaveAndClose() {
+			By by = By.xpath("//coral-button-label[contains(text(),'Save & Close')]");
+			ut.click(by);
+		}
+	 
 	 public void clickContentOnlyButton() {
 		 By contentOnlyButtonBy = By.xpath("//button[contains(@title,'Content Only')]");
 		 ut.click(contentOnlyButtonBy);
