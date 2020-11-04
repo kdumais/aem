@@ -218,10 +218,20 @@ public class AemOne extends BaseTest {
 		driver.get("http://ec2-18-212-17-242.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
 		
 		//ut.sleep(3000);
-		ap.propertiesCard("485A7214");
+		ap.propertiesCard("485A7214.JPG");
 		//ut.sleep(3000);
 		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7215.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		
+		
+		
 		ut.sleep(10000);
 	}
 }

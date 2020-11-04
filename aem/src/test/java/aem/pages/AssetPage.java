@@ -90,7 +90,8 @@ public class AssetPage  {
 	 
 	 public void propertiesCard(String text) {
 			Actions actions = new Actions(driver);
-			By cardBy = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+			//By cardBy = By.xpath("//coral-card-content[contains(text(),'"+text+"')]");
+			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
 			WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
 			actions.moveToElement(cardElement);
 			actions.build().perform();
