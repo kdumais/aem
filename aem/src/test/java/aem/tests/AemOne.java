@@ -162,7 +162,7 @@ public class AemOne extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
@@ -206,6 +206,22 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7248.jpg");
 		ap.upload("485A7249.jpg");
 				
+		ut.sleep(10000);
+	}
+	
+	@Test(enabled=true)
+	public void sevencf() {
+		LogInPage lp = new LogInPage(driver, prop);
+		AssetPage ap = new AssetPage(driver, prop);
+		driver.get("http://ec2-18-212-17-242.compute-1.amazonaws.com:6502");
+        lp.login("admin", "admin");
+		driver.get("http://ec2-18-212-17-242.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		
+		//ut.sleep(3000);
+		ap.propertiesCard("485A7214");
+		//ut.sleep(3000);
+		ap.setTitle("My New Title");
+		
 		ut.sleep(10000);
 	}
 }
