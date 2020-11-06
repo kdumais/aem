@@ -162,54 +162,53 @@ public class AemOne extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-87-65-195.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-88-207-150.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-3-87-65-195.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		driver.get("http://ec2-3-88-207-150.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
 			
-		ap.upload("485A7214.jpg");
-		ap.upload("485A7215.jpg");
-		ap.upload("485A7216.jpg");
-		ap.upload("485A7220.jpg");
-		ap.upload("485A7221.jpg");
-		ap.upload("485A7222.jpg");
-		ap.upload("485A7223.jpg");
-		ap.upload("485A7224.jpg");
-		ap.upload("485A7225.jpg");
-		ap.upload("485A7226.jpg");
-		ap.upload("485A7227.jpg");
-		ap.upload("485A7228.jpg");
-		ap.upload("485A7229.jpg");
-		ap.upload("485A7230.jpg");
-		ap.upload("485A7231.jpg");
-		ap.upload("485A7232.jpg");
-		ap.upload("485A7233.jpg");
-		ap.upload("485A7234.jpg");
-		ap.upload("485A7235.jpg");
-		ap.upload("485A7236.jpg");
-		ap.upload("485A7237.jpg");
-		ap.upload("485A7238.jpg");
-		ap.upload("485A7239.jpg");
-		ap.upload("485A7240.jpg");
-		ap.upload("485A7241.jpg");
-		ap.upload("485A7242.jpg");
-		ap.upload("485A7243.jpg");
-		ap.upload("485A7244.jpg");
-		ap.upload("485A7245.jpg");
-		ap.upload("485A7246.jpg");
-		ap.upload("485A7247.jpg");
-		ap.upload("485A7248.jpg");
-		ap.upload("485A7249.jpg");
-				
+		ap.upload("485A7214.JPG");
+		ap.upload("485A7215.JPG");
+		ap.upload("485A7216.JPG");
+		ap.upload("485A7220.JPG");
+		ap.upload("485A7221.JPG");
+		ap.upload("485A7222.JPG");
+		ap.upload("485A7223.JPG");
+		ap.upload("485A7224.JPG");
+		ap.upload("485A7225.JPG");
+		ap.upload("485A7226.JPG");
+		ap.upload("485A7227.JPG");
+		ap.upload("485A7228.JPG");
+		ap.upload("485A7229.JPG");
+		ap.upload("485A7230.JPG");
+		ap.upload("485A7231.JPG");
+		ap.upload("485A7232.JPG");
+		ap.upload("485A7233.JPG");
+		ap.upload("485A7234.JPG");
+		ap.upload("485A7235.JPG");
+		ap.upload("485A7236.JPG");
+		ap.upload("485A7237.JPG");
+		ap.upload("485A7238.JPG");
+		ap.upload("485A7239.JPG");
+		ap.upload("485A7240.JPG");
+		ap.upload("485A7241.JPG");
+		ap.upload("485A7242.JPG");
+		ap.upload("485A7243.JPG");
+		ap.upload("485A7244.JPG");
+		ap.upload("485A7245.JPG");
+		ap.upload("485A7246.JPG");
+		ap.upload("485A7247.JPG");
+		ap.upload("485A7248.JPG");
+		ap.upload("485A7249.JPG");
 		ut.sleep(10000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void sevencf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
@@ -229,7 +228,20 @@ public class AemOne extends BaseTest {
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
 		
+		ap.propertiesCard("485A7216.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
 		
+		ap.propertiesCard("485A7220.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7221.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
 		
 		
 		ut.sleep(10000);

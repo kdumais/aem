@@ -61,7 +61,10 @@ public class AssetPage  {
 				e.printStackTrace();
 			}
 		 ut.click(uploadButton2By);
-		 ut.sleep(20000);
+		 By by = By.xpath("//coral-progress[@id='progress_"+fileName+"']");
+		 FluentWait<WebDriver> wait = new WebDriverWait(driver, 60);
+		 List<WebElement> elements = driver.findElements(by);
+		 wait.until(ExpectedConditions.invisibilityOfAllElements(elements));
 	}
 	
 	public void waitForPageToLoad() {
