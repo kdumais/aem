@@ -305,22 +305,41 @@ public class AemOne extends BaseTest {
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
 		*/				
-		//ut.sleep(8000);
 		
-		ap.propertiesCard("485A7248b.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
-		ap.clickSaveAndClose();
-		
-		//ut.sleep(5000);
-		
-		ap.propertiesCard("485A7214.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
-		ap.clickSaveAndClose();
+		String title = "My New Title7";
 		
 		ap.propertiesCard("485A7249b.JPG");
-		ap.setTitle("My New Title");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+						
+		ap.propertiesCard("485A7214.JPG");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7248b.JPG");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7215.JPG");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7247b.JPG");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+				
+		ap.propertiesCard("485A7237a.JPG");
+		ap.setTitle(title);
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+				
+		ap.propertiesCard("485A7216.JPG");
+		ap.setTitle(title);
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
 		

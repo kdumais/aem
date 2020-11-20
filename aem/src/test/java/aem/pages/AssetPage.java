@@ -101,8 +101,10 @@ public class AssetPage  {
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			js.executeScript("arguments[0].scrollIntoView()", element);
 			
+			ut.sleep(5000);
+			
 			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']/a");
-			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(cardBy));
+			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
 			actions.moveToElement(cardElementa);
 			actions.build().perform();
 			
