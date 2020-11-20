@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
 import aem.utils.Utils;
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -93,11 +95,17 @@ public class AssetPage  {
 	 
 	 public void propertiesCard(String text) {
 			Actions actions = new Actions(driver);
-			//By cardBy = By.xpath("//coral-card-content[contains(text(),'"+text+"')]");
-			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
-			WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
-			actions.moveToElement(cardElement);
+			
+			By by = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
+			WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			js.executeScript("arguments[0].scrollIntoView()", element);
+			
+			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']/a");
+			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(cardBy));
+			actions.moveToElement(cardElementa);
 			actions.build().perform();
+			
 			By propertiesIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
 			ut.click(propertiesIconBy);
 		 }
@@ -159,7 +167,7 @@ public class AssetPage  {
 	 public void clickSaveAndClose() {
 			By by = By.xpath("//coral-button-label[contains(text(),'Save & Close')]");
 			ut.click(by);
-		}
+	}
 	 
 	 public void clickContentOnlyButton() {
 		 By contentOnlyButtonBy = By.xpath("//button[contains(@title,'Content Only')]");

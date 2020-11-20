@@ -162,16 +162,16 @@ public class AemOne extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-88-207-150.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-86-179-38.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-3-88-207-150.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
-			
+		driver.get("http://ec2-3-86-179-38.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		/*	
 		ap.upload("485A7214.JPG");
 		ap.upload("485A7215.JPG");
 		ap.upload("485A7216.JPG");
@@ -205,20 +205,87 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7247.JPG");
 		ap.upload("485A7248.JPG");
 		ap.upload("485A7249.JPG");
+		
+		ap.upload("485A7214a.JPG");
+		ap.upload("485A7215a.JPG");
+		ap.upload("485A7216a.JPG");
+		ap.upload("485A7220a.JPG");
+		ap.upload("485A7221a.JPG");
+		ap.upload("485A7222a.JPG");
+		ap.upload("485A7223a.JPG");
+		ap.upload("485A7224a.JPG");
+		ap.upload("485A7225a.JPG");
+		ap.upload("485A7226a.JPG");
+		ap.upload("485A7227a.JPG");
+		ap.upload("485A7228a.JPG");
+		ap.upload("485A7229a.JPG");
+		ap.upload("485A7230a.JPG");
+		ap.upload("485A7231a.JPG");
+		ap.upload("485A7232a.JPG");
+		ap.upload("485A7233a.JPG");
+		ap.upload("485A7234a.JPG");
+		ap.upload("485A7235a.JPG");
+		ap.upload("485A7236a.JPG");
+		ap.upload("485A7237a.JPG");
+		ap.upload("485A7238a.JPG");
+		ap.upload("485A7239a.JPG");
+		ap.upload("485A7240a.JPG");
+		ap.upload("485A7241a.JPG");
+		ap.upload("485A7242a.JPG");
+		ap.upload("485A7243a.JPG");
+		ap.upload("485A7244a.JPG");
+		ap.upload("485A7245a.JPG");
+		ap.upload("485A7246a.JPG");
+		ap.upload("485A7247a.JPG");
+		ap.upload("485A7248a.JPG");
+		ap.upload("485A7249a.JPG");
+		*/
+		ap.upload("485A7214b.JPG");
+		ap.upload("485A7215b.JPG");
+		ap.upload("485A7216b.JPG");
+		ap.upload("485A7220b.JPG");
+		ap.upload("485A7221b.JPG");
+		ap.upload("485A7222b.JPG");
+		ap.upload("485A7223b.JPG");
+		ap.upload("485A7224b.JPG");
+		ap.upload("485A7225b.JPG");
+		ap.upload("485A7226b.JPG");
+		ap.upload("485A7227b.JPG");
+		ap.upload("485A7228b.JPG");
+		ap.upload("485A7229b.JPG");
+		ap.upload("485A7230b.JPG");
+		ap.upload("485A7231b.JPG");
+		ap.upload("485A7232b.JPG");
+		ap.upload("485A7233b.JPG");
+		ap.upload("485A7234b.JPG");
+		ap.upload("485A7235b.JPG");
+		ap.upload("485A7236b.JPG");
+		ap.upload("485A7237b.JPG");
+		ap.upload("485A7238b.JPG");
+		ap.upload("485A7239b.JPG");
+		ap.upload("485A7240b.JPG");
+		ap.upload("485A7241b.JPG");
+		ap.upload("485A7242b.JPG");
+		ap.upload("485A7243b.JPG");
+		ap.upload("485A7244b.JPG");
+		ap.upload("485A7245b.JPG");
+		ap.upload("485A7246b.JPG");
+		ap.upload("485A7247b.JPG");
+		ap.upload("485A7248b.JPG");
+		ap.upload("485A7249b.JPG");
+		
 		ut.sleep(10000);
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void sevencf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-18-212-17-242.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-93-190-82.compute-1.amazonaws.com:6502");
         lp.login("admin", "admin");
-		driver.get("http://ec2-18-212-17-242.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
-		
-		//ut.sleep(3000);
+		driver.get("http://ec2-3-93-190-82.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		/*
 		ap.propertiesCard("485A7214.JPG");
-		//ut.sleep(3000);
 		ap.setTitle("My New Title");
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
@@ -237,12 +304,25 @@ public class AemOne extends BaseTest {
 		ap.setTitle("My New Title");
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
+		*/				
+		//ut.sleep(8000);
 		
-		ap.propertiesCard("485A7221.JPG");
+		ap.propertiesCard("485A7248b.JPG");
 		ap.setTitle("My New Title");
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
 		
+		//ut.sleep(5000);
+		
+		ap.propertiesCard("485A7214.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
+		
+		ap.propertiesCard("485A7249b.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.clickSaveAndClose();
 		
 		ut.sleep(10000);
 	}
