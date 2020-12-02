@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 
 import aem.utils.Utils;
 import java.awt.AWTException;
@@ -93,21 +94,78 @@ public class AssetPage  {
 		ut.click(selectIconBy);
 	 }
 	 
-	 public void propertiesCard(String text) {
-			Actions actions = new Actions(driver);
+	 public void loadAssetPage() {
+		 By byA = By.xpath("//coral-masonry-item");
+			System.out.println(ut.getNumberOfElements(byA));
 			
-			By by = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
-			WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+			By myDivBy = By.xpath("//div[@class='foundation-layout-panel-content foundation-collection-content']");
+			WebElement myDiv = driver.findElement(myDivBy);
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
-			js.executeScript("arguments[0].scrollIntoView()", element);
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			ut.sleep(3000);	
+			System.out.println(ut.getNumberOfElements(byA));
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			ut.sleep(3000);	
+			System.out.println(ut.getNumberOfElements(byA));
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			ut.sleep(3000);
+			System.out.println(ut.getNumberOfElements(byA));
 			
-			ut.sleep(5000);
-			
-			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']/a");
+			//By by = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
+			//WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+			//JavascriptExecutor js = ((JavascriptExecutor) driver);
+			//js.executeScript("arguments[0].scrollIntoView()", element);
+		 
+		 
+		 
+		 
+		 
+	 }
+	 
+	 public void propertiesCard(String text) {
+						
+			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
 			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			ut.scrollIntoView(cardElementa);
+						
+			System.out.println("LOC INFO");
+			cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			Point currentPoint = cardElementa.getLocation();
+			Point oldPoint = new Point(0, 0);
+			
+			while (!(currentPoint.equals(oldPoint))) {
+				oldPoint = currentPoint;
+				cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+				currentPoint = cardElementa.getLocation();
+				System.out.println(currentPoint);
+				System.out.println(oldPoint);
+				System.out.println(currentPoint.equals(oldPoint));
+				ut.sleep(3000);
+				
+			}
+			/*
+			WebElement cardElementb = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			System.out.println(cardElementb.getLocation());
+			ut.sleep(1000);
+			WebElement cardElementc = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			System.out.println(cardElementc.getLocation());
+			ut.sleep(1000);
+			WebElement cardElementd = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			System.out.println(cardElementd.getLocation());
+			ut.sleep(1000);
+			WebElement cardElemente = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+			System.out.println(cardElemente.getLocation());
+			ut.sleep(1000);
+			*/
+			
+			
+			Actions actions = new Actions(driver);
+			cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
 			actions.moveToElement(cardElementa);
 			actions.build().perform();
-			
 			By propertiesIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
 			ut.click(propertiesIconBy);
 		 }

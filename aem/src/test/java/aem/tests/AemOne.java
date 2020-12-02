@@ -166,11 +166,11 @@ public class AemOne extends BaseTest {
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-86-179-38.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-18-207-188-29.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-3-86-179-38.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		driver.get("http://ec2-18-207-188-29.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
 		/*	
 		ap.upload("485A7214.JPG");
 		ap.upload("485A7215.JPG");
@@ -239,7 +239,7 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7247a.JPG");
 		ap.upload("485A7248a.JPG");
 		ap.upload("485A7249a.JPG");
-		*/
+		
 		ap.upload("485A7214b.JPG");
 		ap.upload("485A7215b.JPG");
 		ap.upload("485A7216b.JPG");
@@ -273,6 +273,100 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7247b.JPG");
 		ap.upload("485A7248b.JPG");
 		ap.upload("485A7249b.JPG");
+		*/
+		
+		ap.upload("485A7401.JPG");
+		ap.upload("485A7402.JPG");
+		ap.upload("485A7403.JPG");
+		ap.upload("485A7404.JPG");
+		ap.upload("485A7405.JPG");
+		ap.upload("485A7406.JPG");
+		ap.upload("485A7407.JPG");
+		ap.upload("485A7408.JPG");
+		ap.upload("485A7409.JPG");
+		ap.upload("485A7410.JPG");
+		ap.upload("485A7411.JPG");
+		ap.upload("485A7412.JPG");
+		ap.upload("485A7413.JPG");
+		ap.upload("485A7414.JPG");
+		ap.upload("485A7415.JPG");
+		ap.upload("485A7416.JPG");
+		ap.upload("485A7417.JPG");
+		ap.upload("485A7418.JPG");
+		ap.upload("485A7419.JPG");
+		ap.upload("485A7420.JPG");
+		ap.upload("485A7421.JPG");
+		ap.upload("485A7422.JPG");
+		ap.upload("485A7423.JPG");
+		ap.upload("485A7424.JPG");
+		ap.upload("485A7425.JPG");
+		ap.upload("485A7426.JPG");
+		ap.upload("485A7427.JPG");
+		ap.upload("485A7428.JPG");
+		ap.upload("485A7429.JPG");
+		ap.upload("485A7430.JPG");
+		ap.upload("485A7431.JPG");
+		ap.upload("485A7432.JPG");
+		ap.upload("485A7433.JPG");
+		ap.upload("485A7434.JPG");
+		ap.upload("485A7435.JPG");
+		ap.upload("485A7436.JPG");
+		ap.upload("485A7437.JPG");
+		ap.upload("485A7438.JPG");
+		ap.upload("485A7439.JPG");
+		ap.upload("485A7440.JPG");
+		ap.upload("485A7441.JPG");
+		ap.upload("485A7442.JPG");
+		ap.upload("485A7443.JPG");
+		ap.upload("485A7444.JPG");
+		ap.upload("485A7445.JPG");
+		ap.upload("485A7446.JPG");
+		ap.upload("485A7447.JPG");
+		ap.upload("485A7448.JPG");
+		ap.upload("485A7449.JPG");
+		ap.upload("485A7450.JPG");
+		ap.upload("485A7451.JPG");
+		ap.upload("485A7452.JPG");
+		ap.upload("485A7453.JPG");
+		ap.upload("485A7454.JPG");
+		ap.upload("485A7455.JPG");
+		ap.upload("485A7456.JPG");
+		ap.upload("485A7457.JPG");
+		ap.upload("485A7458.JPG");
+		ap.upload("485A7459.JPG");
+		ap.upload("485A7460.JPG");
+		ap.upload("485A7461.JPG");
+		ap.upload("485A7462.JPG");
+		ap.upload("485A7463.JPG");
+		ap.upload("485A7464.JPG");
+		ap.upload("485A7465.JPG");
+		ap.upload("485A7466.JPG");
+		ap.upload("485A7467.JPG");
+		ap.upload("485A7468.JPG");
+		ap.upload("485A7469.JPG");
+		ap.upload("485A7470.JPG");
+		ap.upload("485A7471.JPG");
+		ap.upload("485A7472.JPG");
+		ap.upload("485A7473.JPG");	
+		ap.upload("485A7474.JPG");
+		ap.upload("485A7475.JPG");
+		ap.upload("485A7476.JPG");
+		ap.upload("485A7477.JPG");
+		ap.upload("485A7478.JPG");
+		ap.upload("485A7479.JPG");	
+		ap.upload("485A7480.JPG");
+		ap.upload("485A7481.JPG");
+		ap.upload("485A7482.JPG");
+		ap.upload("485A7483.JPG");
+		ap.upload("485A7484.JPG");
+		ap.upload("485A7485.JPG");	
+		ap.upload("485A7486.JPG");
+		ap.upload("485A7487.JPG");
+		ap.upload("485A7488.JPG");
+		ap.upload("485A7489.JPG");
+		ap.upload("485A7490.JPG");
+				
+		
 		
 		ut.sleep(10000);
 	}
@@ -281,9 +375,9 @@ public class AemOne extends BaseTest {
 	public void sevencf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-93-190-82.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-18-208-156-77.compute-1.amazonaws.com:6502");
         lp.login("admin", "admin");
-		driver.get("http://ec2-3-93-190-82.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		driver.get("http://ec2-18-208-156-77.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
 		/*
 		ap.propertiesCard("485A7214.JPG");
 		ap.setTitle("My New Title");
@@ -306,9 +400,11 @@ public class AemOne extends BaseTest {
 		ap.clickSaveAndClose();
 		*/				
 		
-		String title = "My New Title7";
+		String title = "My New Title43";
 		
-		ap.propertiesCard("485A7249b.JPG");
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7490.JPG");
 		ap.setTitle(title);
 		ap.setDescription("My New Description");
 		ap.clickSaveAndClose();
