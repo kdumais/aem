@@ -458,8 +458,56 @@ public class AemOne extends BaseTest {
 		ap.propertiesCard("485A7214.JPG");
 		ap.setTitle("My New Title");
 		ap.setDescription("My New Description");
-		ap.setTag("sample");
-		//ap.clickSaveAndClose();
+		ap.setTag("kd-test:dog");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7404.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:scenery");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7410.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:stone");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7420.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:stone");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7431.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:wind-mill");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7471.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:water");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7478.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("kd-test:water");
+		ap.clickSaveAndClose();
 		
 		ut.sleep(5000);
 	}

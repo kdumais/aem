@@ -98,10 +98,13 @@ public class AssetPage  {
 		 //keeps scrolling down the page until a div element per asset exists in the DOM, this is enough to scroll the asset into view
 		By byA = By.xpath("//coral-masonry-item");
 		int currentNumber = ut.getNumberOfElements(byA);
-		int newNumber = 0;
+		int newNumber = 1;
 		while (currentNumber != newNumber) {
 			By myDivBy = By.xpath("//div[@class='foundation-layout-panel-content foundation-collection-content']");
-			WebElement myDiv = driver.findElement(myDivBy);
+			//WebElement myDiv = driver.findElement(myDivBy);
+			
+			WebElement myDiv = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(myDivBy));
+			
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
 			waitForPageToLoad();
@@ -237,7 +240,7 @@ public class AssetPage  {
 		 ut.click(dropDownBy);
 		 By namespaceBy = By.xpath("//coral-columnview-item-content[@title='KD-Test']");
 		 ut.click(namespaceBy);
-		 By tagBy = By.xpath("//coral-columnview-item[@data-foundation-picker-collection-item-value='kd-test:dog']/coral-columnview-item-thumbnail");
+		 By tagBy = By.xpath("//coral-columnview-item[@data-foundation-picker-collection-item-value='"+text+"']/coral-columnview-item-thumbnail");
 		 ut.click(tagBy);
 		 By selectBy = By.xpath("//coral-button-label[contains(text(),'Select')]");
 		 ut.click(selectBy);
