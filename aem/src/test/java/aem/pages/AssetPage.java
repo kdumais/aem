@@ -95,24 +95,76 @@ public class AssetPage  {
 	 }
 	 
 	 public void loadAssetPage() {
-		 By byA = By.xpath("//coral-masonry-item");
-			System.out.println(ut.getNumberOfElements(byA));
+		 //keeps scrolling down the page until a div element per asset exists in the DOM, this is enough to scroll the asset into view
+		By byA = By.xpath("//coral-masonry-item");
+		int currentNumber = ut.getNumberOfElements(byA);
+		int newNumber = 0;
+		while (currentNumber != newNumber) {
+			By myDivBy = By.xpath("//div[@class='foundation-layout-panel-content foundation-collection-content']");
+			WebElement myDiv = driver.findElement(myDivBy);
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			ut.sleep(3000);
+			currentNumber = newNumber;
+			newNumber = ut.getNumberOfElements(byA);
+			System.out.println("Numbers:");
+			System.out.println(currentNumber);
+			System.out.println(newNumber);
+		}
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		/* 	System.out.println(ut.getNumberOfElements(byA));
 			
 			By myDivBy = By.xpath("//div[@class='foundation-layout-panel-content foundation-collection-content']");
 			WebElement myDiv = driver.findElement(myDivBy);
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
 			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
 			waitForPageToLoad();
+			long temp = (long)js.executeScript("return arguments[0].scrollHeight", myDiv);
+			System.out.println("scroll height:");
+			System.out.println(temp);
+			ut.sleep(3000);	
+			System.out.println(ut.getNumberOfElements(byA));
+			/*js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			temp = (long)js.executeScript("return arguments[0].scrollHeight", myDiv);
+			System.out.println("scroll height:");
+			System.out.println(temp);
 			ut.sleep(3000);	
 			System.out.println(ut.getNumberOfElements(byA));
 			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
 			waitForPageToLoad();
-			ut.sleep(3000);	
-			System.out.println(ut.getNumberOfElements(byA));
-			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
-			waitForPageToLoad();
+			temp = (long)js.executeScript("return arguments[0].scrollHeight", myDiv);
+			System.out.println("scroll height:");
+			System.out.println(temp);
 			ut.sleep(3000);
 			System.out.println(ut.getNumberOfElements(byA));
+			System.out.println(ut.getNumberOfElements(byA));
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			temp = (long)js.executeScript("return arguments[0].scrollHeight", myDiv);
+			System.out.println("scroll height:");
+			System.out.println(temp);
+			ut.sleep(3000);
+			System.out.println(ut.getNumberOfElements(byA));
+			System.out.println(ut.getNumberOfElements(byA));
+			js.executeScript("arguments[0].scrollTop=arguments[0].scrollHeight", myDiv);
+			waitForPageToLoad();
+			temp = (long)js.executeScript("return arguments[0].scrollHeight", myDiv);
+			System.out.println("scroll height:");
+			System.out.println(temp);
+			ut.sleep(3000);
+			System.out.println(ut.getNumberOfElements(byA));
+			*/
 			
 			//By by = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
 			//WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));

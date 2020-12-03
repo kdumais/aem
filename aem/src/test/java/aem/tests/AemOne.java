@@ -375,9 +375,9 @@ public class AemOne extends BaseTest {
 	public void sevencf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-18-208-156-77.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502");
         lp.login("admin", "admin");
-		driver.get("http://ec2-18-208-156-77.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
 		/*
 		ap.propertiesCard("485A7214.JPG");
 		ap.setTitle("My New Title");
@@ -400,7 +400,7 @@ public class AemOne extends BaseTest {
 		ap.clickSaveAndClose();
 		*/				
 		
-		String title = "My New Title43";
+		String title = "My New Title46";
 		
 		ap.loadAssetPage();
 		
