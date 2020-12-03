@@ -231,6 +231,20 @@ public class AssetPage  {
 		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/dc:description']");
 		 ut.sendKeys(fieldBy, text);
 	 }
+	 
+	 public void setTag(String text) {
+		 By dropDownBy = By.xpath("//foundation-autocomplete[@labelled='Tags selection dialog.']//button");
+		 ut.click(dropDownBy);
+		 By namespaceBy = By.xpath("//coral-columnview-item-content[@title='KD-Test']");
+		 ut.click(namespaceBy);
+		 By tagBy = By.xpath("//coral-columnview-item[@data-foundation-picker-collection-item-value='kd-test:dog']/coral-columnview-item-thumbnail");
+		 ut.click(tagBy);
+		 By selectBy = By.xpath("//coral-button-label[contains(text(),'Select')]");
+		 ut.click(selectBy);
+	 }
+		 
+		 
+	
 	 	 
 	 public void setOnTime(String text) {
 		 By fieldBy = By.xpath("//coral-datepicker[@name='./jcr:content/onTime']/input[@is='coral-textfield']");

@@ -371,8 +371,9 @@ public class AemOne extends BaseTest {
 		ut.sleep(10000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void sevencf() {
+		//really good at editing any metadata for long pages of assest
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502");
@@ -441,4 +442,29 @@ public class AemOne extends BaseTest {
 		
 		ut.sleep(10000);
 	}
+
+
+	@Test(enabled=true)
+	public void eightcf() {
+		//practice setting tag values
+		LogInPage lp = new LogInPage(driver, prop);
+		AssetPage ap = new AssetPage(driver, prop);
+		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502");
+		lp.login("admin", "admin");
+		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
+	
+		ap.loadAssetPage();
+		
+		ap.propertiesCard("485A7214.JPG");
+		ap.setTitle("My New Title");
+		ap.setDescription("My New Description");
+		ap.setTag("sample");
+		//ap.clickSaveAndClose();
+		
+		ut.sleep(5000);
+	}
 }
+		
+	
+	
+	
