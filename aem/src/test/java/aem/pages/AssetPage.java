@@ -182,7 +182,7 @@ public class AssetPage  {
 	 
 	 public void propertiesCard(String text) {
 						
-			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/today/"+text+"']");
+			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/todaya/"+text+"']");
 			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
 			ut.scrollIntoView(cardElementa);
 						

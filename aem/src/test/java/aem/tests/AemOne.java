@@ -166,12 +166,12 @@ public class AemOne extends BaseTest {
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-18-207-188-29.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-54-234-44-75.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-18-207-188-29.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
-		/*	
+		driver.get("ec2-54-234-44-75.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
+		
 		ap.upload("485A7214.JPG");
 		ap.upload("485A7215.JPG");
 		ap.upload("485A7216.JPG");
@@ -273,7 +273,7 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7247b.JPG");
 		ap.upload("485A7248b.JPG");
 		ap.upload("485A7249b.JPG");
-		*/
+		
 		
 		ap.upload("485A7401.JPG");
 		ap.upload("485A7402.JPG");
@@ -449,63 +449,165 @@ public class AemOne extends BaseTest {
 		//practice setting tag values
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-89-250-103.compute-1.amazonaws.com:6502");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-3-89-250-136.compute-1.amazonaws.com:6502/assets.html/content/dam/today");
-	
-		ap.loadAssetPage();
+		driver.get("http://ec2-3-89-250-103.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
 		
+		ap.loadAssetPage();
 		ap.propertiesCard("485A7214.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
+		ap.setTitle("Dog One");
 		ap.setTag("kd-test:dog");
+		ap.setTag("kd-test:indoor");
+		ap.setTag("kd-test:too-dark");
 		ap.clickSaveAndClose();
 		
 		ap.loadAssetPage();
+		ap.propertiesCard("485A7247.JPG");
+		ap.setTitle("Dog Two");
+		ap.setTag("kd-test:dog");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:my-favorite");
+		ap.setTag("kd-test:grass");
+		ap.clickSaveAndClose();
 		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7240.JPG");
+		ap.setTitle("Dog Three");
+		ap.setTag("kd-test:dog");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:my-favorite");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+							
+		ap.loadAssetPage();
 		ap.propertiesCard("485A7404.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
+		ap.setTitle("Scenery One");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7410.JPG");
+		ap.setTitle("Scenery Two");
+		ap.setTag("kd-test:stone");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:zoomed-in");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:my-favorite");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7420.JPG");
+		ap.setTitle("Scenery Three");
+		ap.setTag("kd-test:stone");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:zoomed-in");
 		ap.setTag("kd-test:scenery");
 		ap.clickSaveAndClose();
 		
 		ap.loadAssetPage();
-		
-		ap.propertiesCard("485A7410.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
-		ap.setTag("kd-test:stone");
+		ap.propertiesCard("485A7416.JPG");
+		ap.setTitle("Scenery Four");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:zoomed-in");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:my-favorite");
 		ap.clickSaveAndClose();
 		
 		ap.loadAssetPage();
-		
-		ap.propertiesCard("485A7420.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
-		ap.setTag("kd-test:stone");
-		ap.clickSaveAndClose();
-		
-		ap.loadAssetPage();
-		
 		ap.propertiesCard("485A7431.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
+		ap.setTitle("Scenery Five");
 		ap.setTag("kd-test:wind-mill");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
 		ap.clickSaveAndClose();
 		
 		ap.loadAssetPage();
-		
 		ap.propertiesCard("485A7471.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
+		ap.setTitle("Scenery Six");
 		ap.setTag("kd-test:water");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:my-favorite");
 		ap.clickSaveAndClose();
 		
 		ap.loadAssetPage();
-		
 		ap.propertiesCard("485A7478.JPG");
-		ap.setTitle("My New Title");
-		ap.setDescription("My New Description");
+		ap.setTitle("Scenery Seven");
+		ap.setTag("kd-test:water");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.clickSaveAndClose();
+		
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7490.JPG");
+		ap.setTitle("Scenery Eight");
+		ap.setTag("kd-test:water");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:zoomed-in");
+		ap.setTag("kd-test:my-favorite");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7406.JPG");
+		ap.setTitle("Scenery Nine");
+		ap.setTag("kd-test:grass");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7408.JPG");
+		ap.setTitle("Scenery Ten");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7401.JPG");
+		ap.setTitle("Scenery Eleven");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7421.JPG");
+		ap.setTitle("Scenery Twelve");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:grass");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7440.JPG");
+		ap.setTitle("Scenery Thirteen");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:wind-mill");
+		ap.setTag("kd-test:zoomed-in");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7437.JPG");
+		ap.setTitle("Scenery Fourteen");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
+		ap.setTag("kd-test:wind-mill");
+		ap.setTag("kd-test:zoomed-in");
+		ap.setTag("kd-test:too-dark");
+		ap.clickSaveAndClose();
+		
+		ap.loadAssetPage();
+		ap.propertiesCard("485A7452.JPG");
+		ap.setTitle("Scenery Fifteen");
+		ap.setTag("kd-test:outdoor");
+		ap.setTag("kd-test:scenery");
 		ap.setTag("kd-test:water");
 		ap.clickSaveAndClose();
 		
