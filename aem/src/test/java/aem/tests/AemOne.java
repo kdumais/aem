@@ -640,7 +640,7 @@ public class AemOne extends BaseTest {
 		ap.typeSearchText("dog.grass");
 		ut.sleep(5000); 
 		
-		 */
+		 
 		ap.assertPageCount("189");
 		
 		ap.typeSearchText("*");
@@ -671,7 +671,12 @@ public class AemOne extends BaseTest {
 		ap.typeSearchText("tags:Wind OR tags:Grass");
 		ut.sleep(5000);
 		ap.assertPageCount("6");
-				
+		*/
+		ap.typeSearchText("\"(stone OR outdoor) zoomed\"");
+		ut.sleep(5000);
+		ap.assertPageCount("11");
+		
+						
 		ut.sleep(15000);
 	}
 }
