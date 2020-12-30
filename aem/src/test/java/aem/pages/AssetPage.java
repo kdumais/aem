@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
@@ -225,6 +226,23 @@ public class AssetPage  {
 			ut.click(propertiesIconBy);
 		 }
 	 
+	 public void assertPageCount(String expected) {
+		 By countBy = By.xpath("//granite-pagingstatus");
+		 WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(countBy));
+		 String temp = element.getAttribute("guesstotal");
+		 Assert.assertEquals(temp, expected);
+	 }
+	 
+	 public void getCurrentCount() {
+		 By countBy = By.xpath("//granite-pagingstatus");
+		 WebElement element = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(countBy));
+		 String temp = element.getAttribute("current");
+		 System.out.println("*****Current*********");
+		 System.out.println(temp);
+		 System.out.println("******Current********");
+		 
+	 }
+	 
 	 public void setTitle(String text) {
 		 By fieldBy = By.xpath("//input[@name='./jcr:content/metadata/dc:title']");
 		 ut.sendKeys(fieldBy, text);
@@ -318,7 +336,17 @@ public class AssetPage  {
 		 By maxSizeBy = By.xpath("//input[@id='coral-id-189']");
 		 driver.findElement(minSizeBy).sendKeys(min);
 		 driver.findElement(maxSizeBy).sendKeys(max);
-	}
+	 }
+	 
+	 public void typeSearchText(String text) {
+		 By searchTextBy = By.xpath("//input[@name='fulltext']");
+		 WebElement element = driver.findElement(searchTextBy);
+		 element.clear();
+		 element.sendKeys(text);
+		 element.submit();
+	 }
+	 
+	 
 		
 }
 	

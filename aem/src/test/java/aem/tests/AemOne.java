@@ -166,12 +166,12 @@ public class AemOne extends BaseTest {
 	public void sixthcf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-54-234-44-75.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-82-216-154.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
         lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
-		driver.get("ec2-54-234-44-75.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
-		
+		driver.get("http://ec2-3-82-216-154.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
+		/*
 		ap.upload("485A7214.JPG");
 		ap.upload("485A7215.JPG");
 		ap.upload("485A7216.JPG");
@@ -286,7 +286,7 @@ public class AemOne extends BaseTest {
 		ap.upload("485A7409.JPG");
 		ap.upload("485A7410.JPG");
 		ap.upload("485A7411.JPG");
-		ap.upload("485A7412.JPG");
+		ap.upload("485A7412.JPG");*/
 		ap.upload("485A7413.JPG");
 		ap.upload("485A7414.JPG");
 		ap.upload("485A7415.JPG");
@@ -444,14 +444,14 @@ public class AemOne extends BaseTest {
 	}
 
 
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void eightcf() {
 		//practice setting tag values
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
-		driver.get("http://ec2-3-89-250-103.compute-1.amazonaws.com:6502");
+		driver.get("http://ec2-3-82-171-57.compute-1.amazonaws.com:6502");
 		lp.login("admin", "admin");
-		driver.get("http://ec2-3-89-250-103.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
+		driver.get("http://ec2-3-82-171-57.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
 		
 		ap.loadAssetPage();
 		ap.propertiesCard("485A7214.JPG");
@@ -612,6 +612,67 @@ public class AemOne extends BaseTest {
 		ap.clickSaveAndClose();
 		
 		ut.sleep(5000);
+	}
+	
+	@Test(enabled=true)
+	public void ninecf() {
+		//searches
+		LogInPage lp = new LogInPage(driver, prop);
+		AssetPage ap = new AssetPage(driver, prop);
+		driver.get("http://ec2-54-173-193-124.compute-1.amazonaws.com:6502");
+		lp.login("admin", "admin");
+		driver.get("http://ec2-54-173-193-124.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
+				
+		ap.clickContentOnlyButton();		
+		ap.clickListFilter();
+		ut.sleep(5000);
+		
+		/*ap.typeSearchText("Dog");
+		ut.sleep(5000);
+		ap.typeSearchText("-dog");
+		ut.sleep(5000);
+		ap.typeSearchText("-dog grass");
+		ut.sleep(5000);
+		ap.typeSearchText("dog grass");
+		ut.sleep(5000);
+		ap.typeSearchText("dog-grass");
+		ut.sleep(5000);
+		ap.typeSearchText("dog.grass");
+		ut.sleep(5000); 
+		
+		 */
+		ap.assertPageCount("189");
+		
+		ap.typeSearchText("*");
+		ut.sleep(5000);
+		ap.assertPageCount("189");
+		
+		ap.typeSearchText("title:Scenery*");
+		ut.sleep(5000);
+		ap.assertPageCount("15");
+		ap.typeSearchText("title:scenery*");
+		ut.sleep(5000);  
+		ap.assertPageCount("0");
+				
+		ap.typeSearchText("tags:grass");
+		ut.sleep(5000);
+		ap.assertPageCount("3");
+		ap.typeSearchText("tags:Grass"); 
+		ut.sleep(5000);   
+		ap.assertPageCount("3");
+		
+		ap.typeSearchText("tags:Wind");
+		ut.sleep(5000);
+		ap.assertPageCount("3");
+		ap.typeSearchText("tags:Mill");
+		ut.sleep(5000);
+		ap.assertPageCount("3");
+		
+		ap.typeSearchText("tags:Wind OR tags:Grass");
+		ut.sleep(5000);
+		ap.assertPageCount("6");
+				
+		ut.sleep(15000);
 	}
 }
 		
