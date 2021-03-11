@@ -29,9 +29,9 @@ public class AssetPage  {
 	
 	public By fileUploadBy = By.xpath("/html/body/coral-dialog[4]/div[2]/coral-dialog-content/div/input");
 	public By uploadButtonBy = By.xpath("/html/body/coral-dialog[4]/div[2]/coral-dialog-footer/button[2]/coral-button-label");
-	//public By createButtonBy = By.xpath("//coral-button-label[contains(text(),'Create')]");
 	public By createButtonBy = By.xpath("//coral-button-label[contains(text(),'Create')]//parent::button");
 	public By filesListItemBy = By.xpath("//a[@icon='upload']");
+	public By folderListItemBy = By.xpath("//a[@icon='folderAdd']");
 	By uploadButton2By = By.xpath("//coral-button-label[contains(text(),'Upload')]");
 		
 	public AssetPage(WebDriver driver, Properties prop)  { 
@@ -40,18 +40,27 @@ public class AssetPage  {
 		this.prop=prop;
 	}
 	
+	public void createFolder(String folderName) {
+		 
+		 ut.click(createButtonBy);
+		 ut.click(folderListItemBy);
+		 By folderNameBy = By.xpath("//input[@name='./jcr:content/jcr:title']");
+		 ut.sendKeys(folderNameBy, folderName);
+		 By createButtonBy = By.xpath("//coral-dialog-footer//coral-button-label[contains(text(),'Create')]//parent::button");
+		 ut.click(createButtonBy);
+	}
 	
 	public void upload(String fileName) {
 		 		 
 		 ut.click(createButtonBy);
 		 ut.click(filesListItemBy);
+		 
+		 ut.sleep(2000);
 		 		 
 		 StringSelection stringSelection = new StringSelection(prop.getProperty("assetfiledir")+fileName);
 		 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		 clipboard.setContents(stringSelection, stringSelection);
-		 
-		 ut.sleep(2000);
-		 
+		 		 
 		 try {
 				Robot rb= new Robot();
 				rb.keyPress(KeyEvent.VK_CONTROL);
@@ -64,9 +73,10 @@ public class AssetPage  {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		 
 		 ut.click(uploadButton2By);
 		 By by = By.xpath("//coral-progress[@id='progress_"+fileName+"']");
-		 FluentWait<WebDriver> wait = new WebDriverWait(driver, 60);
+		 FluentWait<WebDriver> wait = new WebDriverWait(driver, 600);
 		 List<WebElement> elements = driver.findElements(by);
 		 wait.until(ExpectedConditions.invisibilityOfAllElements(elements));
 	}
@@ -99,11 +109,9 @@ public class AssetPage  {
 		 //keeps scrolling down the page until a div element per asset exists in the DOM, this is enough to scroll the asset into view
 		By byA = By.xpath("//coral-masonry-item");
 		int currentNumber = ut.getNumberOfElements(byA);
-		int newNumber = 1;
+		int newNumber = -1;
 		while (currentNumber != newNumber) {
 			By myDivBy = By.xpath("//div[@class='foundation-layout-panel-content foundation-collection-content']");
-			//WebElement myDiv = driver.findElement(myDivBy);
-			
 			WebElement myDiv = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(myDivBy));
 			
 			JavascriptExecutor js = ((JavascriptExecutor) driver);
@@ -183,7 +191,7 @@ public class AssetPage  {
 	 
 	 public void propertiesCard(String text) {
 						
-			By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/todaya/"+text+"']");
+	        By cardBy = By.xpath("//coral-masonry-item[@data-foundation-collection-item-id='/content/dam/todaya/"+text+"']");
 			WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
 			ut.scrollIntoView(cardElementa);
 						
@@ -217,14 +225,25 @@ public class AssetPage  {
 			ut.sleep(1000);
 			*/
 			
+			clickPropertiesIcon(text);
 			
-			Actions actions = new Actions(driver);
-			cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
-			actions.moveToElement(cardElementa);
-			actions.build().perform();
-			By propertiesIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
-			ut.click(propertiesIconBy);
 		 }
+	 
+	 public void clickPropertiesIcon(String text) {
+		 By cardBy = By.xpath("//coral-masonry-item[contains(@data-foundation-collection-item-id,'"+text+"')]");
+		 WebElement cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));	
+		 
+		 Actions actions = new Actions(driver);
+		 cardElementa = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+		 actions.moveToElement(cardElementa);
+		 actions.build().perform();
+		 By propertiesIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
+		 ut.click(propertiesIconBy);
+		 
+		 
+		 
+		 
+	 }
 	 
 	 public void assertPageCount(String expected) {
 		 By countBy = By.xpath("//granite-pagingstatus");

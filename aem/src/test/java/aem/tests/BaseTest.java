@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseTest  {
 	public static Properties prop;
+	String authorbaseurl;
 	
 	@BeforeSuite(groups= {"Important"})
 	public void beforeSuite()  {
@@ -30,6 +31,7 @@ public class BaseTest  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		authorbaseurl = prop.getProperty("authorbaseurl");
 						
 	}
 	
@@ -48,7 +50,7 @@ public class BaseTest  {
 	        options.setProfile(fp);
 	        options.setBinary(prop.getProperty("firefoxloc"));
 	        driver = new FirefoxDriver(options);
-		} else if (browser.contentEquals("chrome")) {
+		} else if (browser.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriverloc"));
 			System.setProperty("webdriver.chrome.logfile", "chromedriver.log");
 			ChromeOptions options = new ChromeOptions();

@@ -1,6 +1,7 @@
 package aem.tests;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -614,7 +615,7 @@ public class AemOne extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void ninecf() {
 		//searches
 		LogInPage lp = new LogInPage(driver, prop);
@@ -678,6 +679,54 @@ public class AemOne extends BaseTest {
 		
 						
 		ut.sleep(15000);
+	}
+	
+	@Test(enabled=true)
+	public void tencf() {
+		LogInPage lp = new LogInPage(driver, prop);
+		AssetPage ap = new AssetPage(driver, prop);
+		driver.get(authorbaseurl+"/assets.html");
+		lp.login("admin", "admin");
+		ap.loadAssetPage();
+		
+		ap.createFolder("todayTue");
+		ap.loadAssetPage();
+		//ut.sleep(2000);
+		
+		driver.get(authorbaseurl+"/assets.html/content/dam/todaytue");
+		System.out.println("one");
+		ap.loadAssetPage();
+		
+		//ut.sleep(5000);
+				
+		ap.upload("485A7726.JPG");
+		ap.loadAssetPage();
+					
+		//ut.sleep(5000);
+		
+		//ap.upload("HaloSC1.MP4");
+		//ap.loadAssetPage();
+		
+		//ut.sleep(5000);
+		
+		ap.upload("MyFirstTrya.indd");
+		ap.loadAssetPage();
+				
+		ap.clickPropertiesIcon("485A7726.JPG");
+		ap.setTitle("first title");
+		ap.setDescription("first description");
+		ap.clickSaveAndClose();
+		ap.loadAssetPage();
+		
+		ap.clickPropertiesIcon("MyFirstTrya.indd");
+		ap.setTitle("second title");
+		ap.setDescription("second description");
+		ap.clickSaveAndClose();
+		ap.loadAssetPage();
+		
+		
+		
+		ut.sleep(5000);
 	}
 }
 		
