@@ -1,5 +1,6 @@
 package aem.tests;
 
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ public class AemOne extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
+	Logger log = LogManager.getLogger(AemOne.class);
 	
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod
@@ -685,6 +687,10 @@ public class AemOne extends BaseTest {
 	public void tencf() {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
+		
+		Logger log = LogManager.getLogger("devLogger");
+		log.error("My error message");
+		
 		driver.get(authorbaseurl+"/assets.html");
 		lp.login("admin", "admin");
 		ap.loadAssetPage();
@@ -695,6 +701,7 @@ public class AemOne extends BaseTest {
 		
 		driver.get(authorbaseurl+"/assets.html/content/dam/todaytue");
 		System.out.println("one");
+		
 		ap.loadAssetPage();
 		
 		//ut.sleep(5000);

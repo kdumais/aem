@@ -1,5 +1,6 @@
 package aem.tests;
 
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -11,6 +12,7 @@ public class ListenerClass implements ITestListener {
 	@Override
 	public void onTestStart(ITestResult result) {
 		Logger log = (Logger) result.getAttribute("logger");
+		//logger log = LogManager.getLogger("devLogger");
 		String browser = (String) result.getAttribute("browser");
 		String suite = result.getTestContext().getCurrentXmlTest().getSuite().getName();
 		String test = result.getTestContext().getName();
@@ -18,6 +20,7 @@ public class ListenerClass implements ITestListener {
 		String method = result.getName();
 		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Start: "+message);
+		
 	}
 
 	@Override
@@ -44,6 +47,8 @@ public class ListenerClass implements ITestListener {
 		ut.takeScreenShot(result.getName()+"_failedtest_"+browser+".png");
 		String message = "Suite:"+suite+" Test:"+test+" Instance:"+instance+" Method:"+method+" Browser:"+browser;
 		log.debug("Test Failure: "+message);
+		log.debug(result.getThrowable());
+		
 	}
 
 	@Override
