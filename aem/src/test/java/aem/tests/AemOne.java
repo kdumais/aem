@@ -688,7 +688,7 @@ public class AemOne extends BaseTest {
 		LogInPage lp = new LogInPage(driver, prop);
 		AssetPage ap = new AssetPage(driver, prop);
 		
-		Logger log = LogManager.getLogger("devLogger");
+		//Logger log = LogManager.getLogger("devLogger");
 		log.error("My error message");
 		
 		driver.get(authorbaseurl+"/assets.html");

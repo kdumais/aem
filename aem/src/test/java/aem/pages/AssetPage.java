@@ -55,12 +55,14 @@ public class AssetPage  {
 		 ut.click(createButtonBy);
 		 ut.click(filesListItemBy);
 		 
-		 ut.sleep(2000);
+		 //ut.sleep(2000);
 		 		 
 		 StringSelection stringSelection = new StringSelection(prop.getProperty("assetfiledir")+fileName);
 		 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		 clipboard.setContents(stringSelection, stringSelection);
-		 		 
+		 
+		 ut.sleep(2000);
+		 
 		 try {
 				Robot rb= new Robot();
 				rb.keyPress(KeyEvent.VK_CONTROL);
