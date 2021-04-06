@@ -61,7 +61,7 @@
 	    <configuration>
 		  <suiteXmlFiles>
 		    <!-- TestNG suite XML files -->
-		    <suiteXmlFile>testngaem2.xml</suiteXmlFile>
+		    <suiteXmlFile>testngaem.xml</suiteXmlFile>
 		  </suiteXmlFiles>
 	    </configuration>
 	  </plugin>
