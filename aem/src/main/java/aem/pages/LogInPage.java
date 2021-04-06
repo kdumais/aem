@@ -1,14 +1,10 @@
 package aem.pages;
 
 import org.openqa.selenium.WebDriver;
-
 import java.util.Properties;
-
 import org.openqa.selenium.By;
 import org.testng.Assert;
-
 import aem.utils.Utils;
-
 
 public class LogInPage  {
 	WebDriver driver;
@@ -22,16 +18,14 @@ public class LogInPage  {
 	
 	public LogInPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
-		ut = new Utils(driver, prop);
 		this.prop = prop;
+		ut = new Utils(driver, prop);
 	}
 	
 	public void login(String userName, String password) {
 		ut.sendKeys(userNameBy, userName); 
 		ut.sendKeys(passwordBy, password);
 		ut.click(submitButtonBy);
-		
-		
 	}
 	
 	public void assertWelcomeMessage(String expected) {
