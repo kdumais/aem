@@ -46,7 +46,7 @@ public class AemOne2 extends BaseTest {
 	}
 	
 
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void tencfa() {
 		
 		
