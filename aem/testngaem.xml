@@ -5,8 +5,6 @@
     <listener class-name="aem.tests.ListenerClass"/>
   </listeners>
   <test name="Test One" >
-    <parameter name="ffProfileName" value="default"/>
-    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="aem.tests.AemOne" />
       <class name="aem.tests.AemOne2" />

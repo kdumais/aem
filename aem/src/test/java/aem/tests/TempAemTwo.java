@@ -25,7 +25,7 @@ public class TempAemTwo extends BaseTest {
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
-		driver = getDriver(ffProfileName, browser);
+		driver = getDriver();
 		ut = new Utils(driver, prop);
 		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);

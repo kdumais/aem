@@ -22,16 +22,14 @@ public class AemOne extends BaseTest {
 	Logger log = LogManager.getLogger(AemOne.class);
 	LogInPage lp;
 	AssetPage ap;
-	
-	@Parameters ({"ffProfileName", "browser"})
+		
 	@BeforeMethod
-	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
-		System.out.println("Before Method is the actual test");
-		driver = getDriver(ffProfileName, browser);
+	public void beforeMethod(ITestResult result) {
+		driver = getDriver();
 		ut = new Utils(driver, prop);
 		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
-		result.setAttribute("browser", browser);
+		result.setAttribute("browser", prop.getProperty("browser"));
 		result.setAttribute("logger", log);
 		softAssert = new SoftAssert();
 		lp = new LogInPage(driver, prop);

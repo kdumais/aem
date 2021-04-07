@@ -37,15 +37,18 @@ public class BaseTest  {
 						
 	}
 	
-	public WebDriver getDriver(String ffProfileName, String browser) {
+	public WebDriver getDriver() {
 		WebDriver driver;
+		
+		String browser = prop.getProperty("browser");
+				
 		// Need .equals only when a property is in the comparison
 		if (browser.equals("firefox")) {
 			System.setProperty("webdriver.gecko.driver", prop.getProperty("geckodriverloc"));
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "geckodriver.log");
 			FirefoxProfile fp;
 			ProfilesIni pi = new ProfilesIni();
-		    fp = pi.getProfile(ffProfileName);
+		    fp = pi.getProfile(prop.getProperty("ffProfileName"));
 		    fp.setPreference("security.default_personal_cert",  "Select Automatically");
 		    FirefoxOptions options = new FirefoxOptions();
 		    options.setHeadless(Boolean.valueOf(prop.getProperty("headless")));
