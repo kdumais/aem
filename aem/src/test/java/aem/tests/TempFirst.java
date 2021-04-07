@@ -14,7 +14,7 @@ import org.testng.asserts.SoftAssert;
 
 import aem.utils.Utils;
 
-public class First extends BaseTest {
+public class TempFirst extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;

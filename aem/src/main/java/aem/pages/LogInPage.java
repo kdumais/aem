@@ -9,7 +9,7 @@ import aem.utils.Utils;
 public class LogInPage  {
 	WebDriver driver;
 	Utils ut;
-	Properties prop;
+	//Properties prop;
 		
 	public By userNameBy = By.xpath("//input[@name='j_username']");
 	public By passwordBy = By.xpath("//input[@name='j_password']");
@@ -18,7 +18,6 @@ public class LogInPage  {
 	
 	public LogInPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
-		this.prop = prop;
 		ut = new Utils(driver, prop);
 	}
 	

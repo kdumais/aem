@@ -12,11 +12,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest  {
 	public static Properties prop;
-	String authorbaseurl;
+	public static String authorbaseurl;
 	
 	@BeforeSuite(groups= {"Important"})
 	public void beforeSuite()  {
@@ -37,7 +39,7 @@ public class BaseTest  {
 	
 	public WebDriver getDriver(String ffProfileName, String browser) {
 		WebDriver driver;
-		
+		// Need .equals only when a property is in the comparison
 		if (browser.equals("firefox")) {
 			System.setProperty("webdriver.gecko.driver", prop.getProperty("geckodriverloc"));
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "geckodriver.log");

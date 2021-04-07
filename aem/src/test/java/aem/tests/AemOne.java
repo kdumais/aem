@@ -20,10 +20,13 @@ public class AemOne extends BaseTest {
 	public Utils ut;
 	public static SoftAssert softAssert;
 	Logger log = LogManager.getLogger(AemOne.class);
+	LogInPage lp;
+	AssetPage ap;
 	
 	@Parameters ({"ffProfileName", "browser"})
 	@BeforeMethod
 	public void beforeMethod(String ffProfileName, String browser, ITestResult result) {
+		System.out.println("Before Method is the actual test");
 		driver = getDriver(ffProfileName, browser);
 		ut = new Utils(driver, prop);
 		Logger log = Logger.getLogger("Log");
@@ -31,6 +34,9 @@ public class AemOne extends BaseTest {
 		result.setAttribute("browser", browser);
 		result.setAttribute("logger", log);
 		softAssert = new SoftAssert();
+		lp = new LogInPage(driver, prop);
+		ap = new AssetPage(driver, prop);
+		
 	}
 	
 	@AfterMethod
@@ -685,8 +691,7 @@ public class AemOne extends BaseTest {
 	
 	@Test(enabled=true)
 	public void tencf() {
-		LogInPage lp = new LogInPage(driver, prop);
-		AssetPage ap = new AssetPage(driver, prop);
+		
 		
 		//Logger log = LogManager.getLogger("devLogger");
 		log.error("My error message");

@@ -17,7 +17,7 @@ import aem.pages.AssetPage;
 import aem.pages.LogInPage;
 import aem.utils.Utils;
 
-public class AemTwo extends BaseTest {
+public class TempAemTwo extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
