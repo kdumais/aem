@@ -51,15 +51,34 @@ public class User extends BaseTest {
 	
 
 	@Test(enabled=true)
-	public void userView() {
-				
+	public void userViewCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
 		up.clickUserIcon();
-		
-		
+		up.assertUserName("Administrator");
+		up.assertUserHeading("admin");
+		up.assertDisplayedMyPreferencesButton();
+		up.assertDisplayedProfileButton();
+		up.assertDisplayedSignOutButton();
 		ut.sleep(5000);
-		
+	}
+	
+	@Test(enabled=true)
+	public void userMyPreferencesCheck() {
+		driver.get(authorbaseurl);
+		lp.login("admin", "admin");
+		up.clickUserIcon();
+		up.clickMyPreferencesButton();
+		ut.sleep(5000);
+	}
+	
+	@Test(enabled=true)
+	public void userProfileCheck() {
+		driver.get(authorbaseurl);
+		lp.login("admin", "admin");
+		up.clickUserIcon();
+		up.clickProfileButton();
+		ut.sleep(5000);
 	}
 }
 		
