@@ -51,7 +51,7 @@ public class AemOne extends BaseTest {
 		System.out.println(ut.getNumberOfElementsOnPage());
 						
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		ut.takeScreenShot("login.png");
 		lp.login("admin", "admin");
 		ut.takeScreenShot("login2.png");
@@ -63,7 +63,7 @@ public class AemOne extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		ut.takeScreenShot("secondlogina.png");
 		lp.login("admin", "admin");
 		ut.takeScreenShot("secondloginb.png");
@@ -80,7 +80,7 @@ public class AemOne extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		ut.takeScreenShot("thirdlogina.png");
 		lp.login("admin", "admin");
 		ut.takeScreenShot("thirdloginb.png");
@@ -96,7 +96,7 @@ public class AemOne extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		//ut.takeScreenShot(prop, "fourthlogina.png");
 		lp.login("admin", "admin");
 		//ut.takeScreenShot(prop, "fourthloginb.png");
@@ -145,7 +145,7 @@ public class AemOne extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:6502");
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
 		driver.get("http://localhost:6502/assets.html/content/dam/mysite");
 		
@@ -175,7 +175,7 @@ public class AemOne extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://ec2-3-82-216-154.compute-1.amazonaws.com:6502");
         ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
 		driver.get("http://ec2-3-82-216-154.compute-1.amazonaws.com:6502/assets.html/content/dam/todaya");
 		/*
@@ -687,7 +687,7 @@ public class AemOne extends BaseTest {
 		ut.sleep(15000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void tencf() {
 		
 		

@@ -1,5 +1,7 @@
 package aem.tests;
 
+import static org.testng.Assert.assertTrue;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,11 +17,11 @@ import aem.pages.AssetPage;
 import aem.pages.LogInPage;
 import aem.utils.Utils;
 
-public class AemOne2 extends BaseTest {
+public class LogIn extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
-	Logger log = LogManager.getLogger(AemOne2.class);
+	Logger log = LogManager.getLogger(LogIn.class);
 	LogInPage lp;
 	AssetPage ap;
 		
@@ -46,38 +48,23 @@ public class AemOne2 extends BaseTest {
 	}
 	
 
-	@Test(enabled=false)
-	public void tencfa() {
+	@Test(enabled=true)
+	public void loginScreenView() {
+				
+		driver.get(authorbaseurl);
+		ut.assertPageTitle("AEM Sign In");
+		lp.assertWelomeHeadingExists();
+		lp.assertWelcomeMessageExists();
+		lp.assertUserNameInputExists();
+		lp.assertPasswordInputExists();
+		lp.assertSubmitButtonExists();
 		
-		
-		//Logger log = LogManager.getLogger("devLogger");
-		log.error("My error message");
-		driver.get(authorbaseurl+"/assets.html");
-		lp.login("admin", "admin");
-		ap.loadAssetPage();
-		
-		ap.createFolder("todayWed");
-		ap.loadAssetPage();
-		//ut.sleep(2000);
-		
-		driver.get(authorbaseurl+"/assets.html/content/dam/todaywed");
-		System.out.println("one");
-		
-		ap.loadAssetPage();
-						
-		//ap.upload("HaloSC1.MP4");
-		//ap.loadAssetPage();
-								
-		//ap.clickPropertiesIcon("HaloSC1.MP4");
-		//ap.setTitle("first title");
-		//ap.setDescription("first description");
-		//ap.clickSaveAndClose();
-		//ap.loadAssetPage();
+		lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
+		lp.assertWelcomeMessageContains("An Adobe Experience Cloud solution: All the tools you need to solve these complex digital business challenges.");
 		
 		
 		
 		
-		ut.sleep(5000);
 	}
 }
 		

@@ -8,6 +8,7 @@
     <classes>
       <class name="aem.tests.AemOne" />
       <class name="aem.tests.AemOne2" />
+      <class name="aem.tests.LogIn" />
     </classes>
   </test> <!-- Test -->
   

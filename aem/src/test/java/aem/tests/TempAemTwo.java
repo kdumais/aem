@@ -45,7 +45,7 @@ public class TempAemTwo extends BaseTest {
 		AssetPage ap = new AssetPage(driver, prop);
 		driver.get("http://localhost:4502/assets.html/content/dam");
 		ut.assertPageTitle("AEM Sign In");
-        lp.assertWelcomeMessage("Welcome to Adobe Experience Manager");
+        lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
 		lp.login("admin", "admin");
 		ap.waitForPageToLoad();
 		ap.clickAssetCard("WKND Site");

@@ -77,6 +77,10 @@ public class Utils  {
 		element.sendKeys(text);
 	}
 	
+	public WebElement getElement(By by) {
+		return new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
 	public void assertPageTitle(String expected) {
 		String title=driver.getTitle();
 		Assert.assertEquals(title, expected);
@@ -89,6 +93,16 @@ public class Utils  {
 	public void assertElementNotPresent(By by) {
 		Assert.assertTrue(driver.findElements(by).size()==0);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void addBorder(WebElement element) {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
