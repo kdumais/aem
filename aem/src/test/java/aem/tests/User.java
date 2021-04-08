@@ -15,15 +15,17 @@ import org.testng.asserts.SoftAssert;
 
 import aem.pages.AssetPage;
 import aem.pages.LogInPage;
+import aem.pages.UserPage;
 import aem.utils.Utils;
 
-public class LogIn extends BaseTest {
+public class User extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
-	Logger log = LogManager.getLogger(LogIn.class);
+	Logger log = LogManager.getLogger(User.class);
 	LogInPage lp;
 	AssetPage ap;
+	UserPage up;
 		
 	@BeforeMethod
 	public void beforeMethod(ITestResult result) {
@@ -31,7 +33,7 @@ public class LogIn extends BaseTest {
 		ut = new Utils(driver, prop);
 		lp = new LogInPage(driver, prop);
 		ap = new AssetPage(driver, prop);
-		
+		up = new UserPage(driver, prop);
 		
 		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
@@ -48,22 +50,15 @@ public class LogIn extends BaseTest {
 	}
 	
 
-	@Test(enabled=false)
-	public void loginScreenView() {
+	@Test(enabled=true)
+	public void userView() {
 				
 		driver.get(authorbaseurl);
-		ut.assertPageTitle("AEM Sign In");
-		lp.assertWelomeHeadingExists();
-		lp.assertWelcomeMessageExists();
-		lp.assertUserNameInputExists();
-		lp.assertPasswordInputExists();
-		lp.assertSubmitButtonExists();
-		
-		lp.assertWelcomeHeading("Welcome to Adobe Experience Manager");
-		lp.assertWelcomeMessageContains("An Adobe Experience Cloud solution: All the tools you need to solve these complex digital business challenges.");
+		lp.login("admin", "admin");
+		up.clickUserIcon();
 		
 		
-		
+		ut.sleep(5000);
 		
 	}
 }
