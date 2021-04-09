@@ -28,8 +28,13 @@ public class UserPage  {
 	public By windowManagementCurrentValueBy = By.xpath("//form[@id='granite-user-preferences']//coral-select[@name='winMode']//span");
 	public By showHelpOverlaysBy = By.xpath("//form[@id='granite-user-preferences']//coral-checkbox[@name='granite.shell.showonboarding620']/input");
 	public By showHelpDesktopActionsBy = By.xpath("//form[@id='granite-user-preferences']//coral-checkbox[@name='showAssetDesktopLinks']/input");
-	
-	
+	public By relativeDateBy = By.xpath("//form[@id='granite-user-preferences']//coral-select[@name='relativeDateCutoff']//button");
+	public By relativeDateCurrentValueBy = By.xpath("//form[@id='granite-user-preferences']//coral-select[@name='relativeDateCutoff']//span");
+	public By enableShortcutsBy = By.xpath("//form[@id='granite-user-preferences']//coral-checkbox[@name='shortcutsEnabled']/input");
+	public By useClassicAuthoringBy = By.xpath("//form[@id='granite-user-preferences']//coral-checkbox[@name='authoringMode']/input");
+	public By enableAssetHomePageBy = By.xpath("//form[@id='granite-user-preferences']//coral-checkbox[@name='enableHomePage']/input");
+	public By userPrefCancelButtonBy = By.xpath("//coral-dialog-footer//coral-button-label[contains(text(),'Cancel')]");
+	public By userPrefAcceptButtonBy = By.xpath("//coral-dialog-footer//coral-button-label[contains(text(),'Accept')]");
 	
 	public UserPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -109,6 +114,43 @@ public class UserPage  {
 		Assert.assertEquals(ut.getElement(showHelpDesktopActionsBy).isSelected(), expected);
 	}
 	
+	public void selectRelativeDate(String relativeDate) {
+		ut.getElement(relativeDateBy).click();
+		By choiceBy = By.xpath("//form[@id='granite-user-preferences']//coral-select[@name='relativeDateCutoff']//coral-overlay//coral-selectlist-item[contains(text(),'"+relativeDate+"')]");
+		ut.click(choiceBy);
+	}
+	
+	public void assertRelativeDateValue(String expected) {
+		Assert.assertEquals(ut.getElement(relativeDateCurrentValueBy).getText(), expected);
+	}
+	
+	public void selectEnableShortcuts() {
+		ut.click(enableShortcutsBy);
+	}
+	
+	public void assertEnableShortcutsIsSelected(boolean expected) {
+		Assert.assertEquals(ut.getElement(enableShortcutsBy).isSelected(), expected);
+	}
+	
+	public void selectUseClassicAuthoring() {
+		ut.click(useClassicAuthoringBy);
+	}
+	
+	public void assertUseClassicAuthoringIsSelected(boolean expected) {
+		Assert.assertEquals(ut.getElement(useClassicAuthoringBy).isSelected(), expected);
+	}
+	
+	public void selectEnableAssetHomePage() {
+		ut.click(enableAssetHomePageBy);
+	}
+	
+	public void assertEnableAssetHomePageIsSelected(boolean expected) {
+		Assert.assertEquals(ut.getElement(enableAssetHomePageBy).isSelected(), expected);
+	}
+	
+	public void clickCancelButton() {
+		ut.click(userPrefCancelButtonBy);
+	}
 }
 	
 

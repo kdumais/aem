@@ -79,6 +79,18 @@ public class User extends BaseTest {
 		up.assertShowDesktopActionsIsSelected(false);
 		up.selectShowDesktopActions();
 		up.assertShowDesktopActionsIsSelected(true);
+		up.selectRelativeDate("7 Days (default)");
+		up.assertRelativeDateValue("7 Days (default)");
+		up.assertEnableShortcutsIsSelected(true);
+		up.selectEnableShortcuts();
+		up.assertEnableShortcutsIsSelected(false);
+		up.assertUseClassicAuthoringIsSelected(false);
+		up.selectUseClassicAuthoring();
+		up.assertUseClassicAuthoringIsSelected(true);
+		up.assertEnableAssetHomePageIsSelected(true);
+		up.selectEnableAssetHomePage();
+		up.assertEnableAssetHomePageIsSelected(false);
+		up.clickCancelButton();
 		
 		ut.sleep(5000);
 	}
