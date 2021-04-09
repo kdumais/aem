@@ -50,7 +50,7 @@ public class User extends BaseTest {
 	}
 	
 
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void userViewCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
@@ -69,10 +69,21 @@ public class User extends BaseTest {
 		lp.login("admin", "admin");
 		up.clickUserIcon();
 		up.clickMyPreferencesButton();
+		up.selectLanguage("English");
+		up.assertLanguageValue("English");
+		up.selectWindowManagement("Multiple Windows (Default)");
+		up.assertWindowManagementValue("Multiple Windows (Default)");
+		up.assertShowHelpOverlayIsSelected(false);
+		up.selectShowHelpOverlay();
+		up.assertShowHelpOverlayIsSelected(true);
+		up.assertShowDesktopActionsIsSelected(false);
+		up.selectShowDesktopActions();
+		up.assertShowDesktopActionsIsSelected(true);
+		
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void userProfileCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
