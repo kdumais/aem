@@ -16,6 +16,7 @@ import org.testng.asserts.SoftAssert;
 import aem.pages.AssetPage;
 import aem.pages.LogInPage;
 import aem.pages.UserPage;
+import aem.pages.UserSettingsPage;
 import aem.utils.Utils;
 
 public class User extends BaseTest {
@@ -26,6 +27,7 @@ public class User extends BaseTest {
 	LogInPage lp;
 	AssetPage ap;
 	UserPage up;
+	UserSettingsPage us;
 		
 	@BeforeMethod
 	public void beforeMethod(ITestResult result) {
@@ -34,6 +36,7 @@ public class User extends BaseTest {
 		lp = new LogInPage(driver, prop);
 		ap = new AssetPage(driver, prop);
 		up = new UserPage(driver, prop);
+		us = new UserSettingsPage(driver, prop);
 		
 		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
@@ -63,7 +66,7 @@ public class User extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void userMyPreferencesCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
@@ -95,12 +98,25 @@ public class User extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void userProfileCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
 		up.clickUserIcon();
 		up.clickProfileButton();
+		us.editEmail("me@gmail.com");
+		us.editTitle("My Title");
+		us.editFname("First Name");
+		us.editLname("Last Name");
+		us.selectGender("male");
+		us.editPhoneNumber("1112223456");
+		us.editJobTitle("Job Title");
+		us.editAbout("About");
+		us.editStreet("Street");
+		us.editCity("City");
+		us.editPostalCode("44522");
+		us.selectCountry("United States");
+		
 		ut.sleep(5000);
 	}
 }
