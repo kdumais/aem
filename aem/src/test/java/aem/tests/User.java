@@ -105,17 +105,29 @@ public class User extends BaseTest {
 		up.clickUserIcon();
 		up.clickProfileButton();
 		us.editEmail("me@gmail.com");
+		us.assertEmail("me@gmail.com");
 		us.editTitle("My Title");
+		us.assertTitle("My Title");
 		us.editFname("First Name");
+		us.assertFname("First Name");
 		us.editLname("Last Name");
+		us.assertLname("Last Name");
 		us.selectGender("male");
+		us.assertGender("male");
 		us.editPhoneNumber("1112223456");
+		us.assertPhoneNumber("1112223456");
 		us.editJobTitle("Job Title");
+		us.assertJobTitle("Job Title");
 		us.editAbout("About");
+		us.assertAbout("About");
 		us.editStreet("Street");
+		us.assertStreet("Street");
 		us.editCity("City");
+		us.assertCity("City");
 		us.editPostalCode("44522");
+		us.assertPostalCode("44522");
 		us.selectCountry("United States");
+		us.assertCountry("United States");
 		
 		ut.sleep(5000);
 	}
