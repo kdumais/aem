@@ -23,7 +23,7 @@ public class ProjectPage  {
 	public By nextButtonBy = By.xpath("//coral-button-label[contains(text(),'Next')]");
 	public By titleBy = By.xpath("//input[@name='jcr:title']");
 	public By descriptionBy = By.xpath("//textarea[@name='jcr:description']");
-	public By projectStatusBy = By.xpath("coral-switch/input[@name='active']");
+	public By projectStatusBy = By.xpath("//coral-switch/input[@name='active']");
 	public By startDateBy = By.xpath("//coral-datepicker[@name='project.startDate']/input[@handle='input']");
 	public By startDateValueBy = By.xpath("//coral-datepicker[@name='project.startDate']");
 	public By dueDateBy = By.xpath("//coral-datepicker[@name='project.dueDate']/input[@handle='input']");
@@ -82,6 +82,10 @@ public class ProjectPage  {
 	//Only on edit NOT create
 	public void clickProjectStatus() {
 		ut.click(projectStatusBy);
+	}
+	
+	public void assertProjectStatusActive(String expected) {
+		Assert.assertEquals(ut.getElement(projectStatusBy).getAttribute("value"), expected);
 	}
 	
 	public void editStartDate(String text) {

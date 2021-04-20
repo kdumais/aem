@@ -83,6 +83,7 @@ public class Project extends BaseTest {
 		pp.assertDescription("Description");
 		pp.assertStartDate("2021-04-19T13:00:00.000-04:00");
 		pp.assertDueDate("2021-12-19T13:00:00.000-05:00");
+		pp.assertProjectStatusActive("true");
 		
 		ut.sleep(15000);
 	}
