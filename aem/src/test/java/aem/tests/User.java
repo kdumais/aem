@@ -98,7 +98,7 @@ public class User extends BaseTest {
 		ut.sleep(5000);
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void userProfileCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");

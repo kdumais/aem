@@ -15,11 +15,11 @@ import aem.pages.AssetPage;
 import aem.pages.LogInPage;
 import aem.utils.Utils;
 
-public class AemOne extends BaseTest {
+public class TempAemOne extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
-	Logger log = LogManager.getLogger(AemOne.class);
+	Logger log = LogManager.getLogger(TempAemOne.class);
 	LogInPage lp;
 	AssetPage ap;
 		
