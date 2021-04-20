@@ -9,6 +9,7 @@
       <class name="aem.tests.LogIn" />
       <class name="aem.tests.User" />
       <class name="aem.tests.Project" />
+      <class name="aem.tests.Inbox" />
     </classes>
   </test> <!-- Test -->
   

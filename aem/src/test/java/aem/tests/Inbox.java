@@ -14,22 +14,24 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import aem.pages.AssetPage;
+import aem.pages.InboxPage;
 import aem.pages.LogInPage;
 import aem.pages.ProjectPage;
 import aem.pages.UserPage;
 import aem.pages.UserSettingsPage;
 import aem.utils.Utils;
 
-public class Project extends BaseTest {
+public class Inbox extends BaseTest {
 	public WebDriver driver;
 	public Utils ut;
 	public static SoftAssert softAssert;
-	Logger log = LogManager.getLogger(Project.class);
+	Logger log = LogManager.getLogger(Inbox.class);
 	LogInPage lp;
 	AssetPage ap;
 	UserPage up;
 	UserSettingsPage us;
 	ProjectPage pp;
+	InboxPage ip;
 		
 	@BeforeMethod
 	public void beforeMethod(ITestResult result) {
@@ -40,6 +42,7 @@ public class Project extends BaseTest {
 		up = new UserPage(driver, prop);
 		us = new UserSettingsPage(driver, prop);
 		pp = new ProjectPage(driver, prop);
+		ip = new InboxPage(driver, prop);
 		
 		Logger log = Logger.getLogger("Log");
 		result.setAttribute("utils", ut);
@@ -56,34 +59,13 @@ public class Project extends BaseTest {
 	}
 	
 
-	@Test(enabled=false)
+	@Test(enabled=true)
 	public void projectCheck() {
 		driver.get(authorbaseurl);
 		lp.login("admin", "admin");
-		pp.clickProjectIcon();
-		pp.clickCreateButton();
-		pp.clickProjectListItem();
-		pp.selectProjectTemplate("Simple Project");
-		pp.clickNextButton();
-		pp.editTitle("Project Title");
-		pp.editDescription("Description");
-		pp.editStartDate("2021-04-19 13:00");
-		pp.editDueDate("2021-12-19 13:00");
-		pp.clickAdvancedTab();
-		pp.editName("Name");
-		pp.clickCreateButton();
-		
-		pp.assertSaveSuccessHeader("Success");
-		pp.assertSaveSuccessContent("The project was created");
-		pp.clickDoneButton();
-		
-		pp.selectProperties("Project Title");
-		
-		pp.assertTitle("Project Title");
-		pp.assertDescription("Description");
-		pp.assertStartDate("2021-04-19T13:00:00.000-04:00");
-		pp.assertDueDate("2021-12-19T13:00:00.000-05:00");
-		pp.assertProjectStatusActive("true");
+		ip.clickInboxIcon();
+		ip.clickViewAll();
+		ip.assertHowManyRows(4);
 		
 		ut.sleep(5000);
 	}
