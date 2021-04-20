@@ -2,6 +2,9 @@ package aem.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertEquals;
 
@@ -18,11 +21,13 @@ public class ProjectPage  {
 	public By createButtonBy = By.xpath("//coral-button-label[contains(text(),'Create')]");
 	public By projectListItemBy = By.xpath("//coral-list-item-content[contains(text(),'Project')]");
 	public By nextButtonBy = By.xpath("//coral-button-label[contains(text(),'Next')]");
-	public By titleBy = By.xpath("//coral-panel-content//input[@name='jcr:title']");
-	public By descriptionBy = By.xpath("//coral-panel-content//textarea[@name='jcr:description']");
+	public By titleBy = By.xpath("//input[@name='jcr:title']");
+	public By descriptionBy = By.xpath("//textarea[@name='jcr:description']");
 	public By projectStatusBy = By.xpath("coral-switch/input[@name='active']");
 	public By startDateBy = By.xpath("//coral-datepicker[@name='project.startDate']/input[@handle='input']");
+	public By startDateValueBy = By.xpath("//coral-datepicker[@name='project.startDate']");
 	public By dueDateBy = By.xpath("//coral-datepicker[@name='project.dueDate']/input[@handle='input']");
+	public By dueDateValueBy = By.xpath("//coral-datepicker[@name='project.dueDate']");
 	public By basicTabBy = By.xpath("//coral-tab-label[contains(text(),'Basic')]");
 	public By advancedTabBy = By.xpath("//coral-tab-label[contains(text(),'Advanced')]");
 	public By nameBy = By.xpath("//input[@name='name']");
@@ -62,8 +67,16 @@ public class ProjectPage  {
 		ut.sendKeys(titleBy, text);
 	}
 	
+	public void assertTitle(String expected) {
+		Assert.assertEquals(ut.getElement(titleBy).getAttribute("value"), expected);
+	}
+	
 	public void editDescription(String text) {
 		ut.sendKeys(descriptionBy, text);
+	}
+	
+	public void assertDescription(String expected) {
+		Assert.assertEquals(ut.getElement(descriptionBy).getAttribute("value"), expected);
 	}
 	
 	//Only on edit NOT create
@@ -74,9 +87,17 @@ public class ProjectPage  {
 	public void editStartDate(String text) {
 		ut.sendKeys(startDateBy, text);
 	}
+	
+	public void assertStartDate(String expected) {
+		Assert.assertEquals(ut.getElement(startDateValueBy).getAttribute("value"), expected);
+	}
 			
 	public void editDueDate(String text) {
 		ut.sendKeys(dueDateBy, text);
+	}
+	
+	public void assertDueDate(String expected) {
+		Assert.assertEquals(ut.getElement(dueDateValueBy).getAttribute("value"), expected);
 	}
 	
 	public void clickBasicTab() {
@@ -102,6 +123,26 @@ public class ProjectPage  {
 	public void clickDoneButton() {
 		ut.click(saveSuccessDoneButtonBy);
 	}
+	
+	public void selectCard(String text) {
+		Actions actions = new Actions(driver);
+		By cardBy = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+		WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+		actions.moveToElement(cardElement);
+		actions.build().perform();
+		By selectIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Select']");
+		ut.click(selectIconBy);
+	 }
+	
+	public void selectProperties(String text) {
+		Actions actions = new Actions(driver);
+		By cardBy = By.xpath("//coral-card-content//coral-card-title[contains(text(),'"+text+"')]");
+		WebElement cardElement = new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(cardBy));
+		actions.moveToElement(cardElement);
+		actions.build().perform();
+		By selectIconBy = By.xpath("//coral-quickactions[@aria-hidden='false']//button[@title='Properties']");
+		ut.click(selectIconBy);
+	 }
 }
 	
 

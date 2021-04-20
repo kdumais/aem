@@ -77,6 +77,13 @@ public class Project extends BaseTest {
 		pp.assertSaveSuccessContent("The project was created");
 		pp.clickDoneButton();
 		
+		pp.selectProperties("Project Title");
+		
+		pp.assertTitle("Project Title");
+		pp.assertDescription("Description");
+		pp.assertStartDate("2021-04-19T13:00:00.000-04:00");
+		pp.assertDueDate("2021-12-19T13:00:00.000-05:00");
+		
 		ut.sleep(15000);
 	}
 	
