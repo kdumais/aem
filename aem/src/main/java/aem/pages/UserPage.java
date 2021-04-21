@@ -43,6 +43,8 @@ public class UserPage  {
 	
 	public void clickUserIcon() {
 		ut.click(navigationBarUserIconBy);
+		//Temp fix to no implement wait for element to be in its final coordinates
+		ut.sleep(1000);
 	}
 	
 	public void assertUserName(String expected) {
