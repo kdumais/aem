@@ -71,6 +71,13 @@ public class Inbox extends BaseTest {
 		ip.assertTitle(4, "Configure HTTPS");
 		ip.assertPriority(1, "Medium");
 		ip.assertPriority(4, "High");
+		ip.assertDescription(1, "You can opt in for Analytics and Targeting by selecting your configuration and then adding it to your pages.");
+		ip.assertDescription(3, "You can opt in for aggregated usage statistics collection by enabling it for all users");
+		ip.assertAssignee(2, "administrators");
+		ip.assertStatus(1, "Active");
+		ip.clickCompleteButton();
+		//ip.clickReassignButton();
+		//ip.clickOpenButton();
 		
 		ut.sleep(5000);
 	}

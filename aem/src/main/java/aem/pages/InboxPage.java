@@ -20,6 +20,10 @@ public class InboxPage  {
 	public By bellIconBy = By.xpath("//coral-icon[@icon='bell']");
 	public By viewAllBy = By.xpath("//coral-shell-menu[@aria-hidden='false']//a[@href='/aem/inbox']");
 	public By howManyRowsBy = By.xpath("//table[@handle='table']/tbody/tr");
+	//There are two elements like this, but this works because we want the first one
+	public By completeButtonBy = By.xpath("//coral-button-label[contains(text(),'Complete')]");
+	public By reassignButtonBy = By.xpath("//coral-button-label[contains(text(),'Re-assign')]");
+	public By openButtonBy = By.xpath("//coral-button-label[contains(text(),'Open')]");
 		
 	public InboxPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -55,7 +59,32 @@ public class InboxPage  {
 		Assert.assertEquals(ut.getElement(selectBy).getText(), expected);
 	}
 	
+	public void assertDescription(int rowNum, String expected) {
+		By selectBy = By.xpath("//table[@handle='table']/tbody/tr["+rowNum+"]/td[4]/span");
+		Assert.assertEquals(ut.getElement(selectBy).getText(), expected);
+	}
 	
+	public void assertAssignee(int rowNum, String expected) {
+		By selectBy = By.xpath("//table[@handle='table']/tbody/tr["+rowNum+"]/td[5]//span");
+		Assert.assertEquals(ut.getElement(selectBy).getText(), expected);
+	}
+	
+	public void assertStatus(int rowNum, String expected) {
+		By selectBy = By.xpath("//table[@handle='table']/tbody/tr["+rowNum+"]/td[8]");
+		Assert.assertEquals(ut.getElement(selectBy).getAttribute("value"), expected);
+	}
+	
+	public void clickCompleteButton() {
+		ut.click(completeButtonBy);
+	}
+	
+	public void clickReassignButton() {
+		ut.click(reassignButtonBy);
+	}
+	
+	public void clickOpenButton() {
+		ut.click(openButtonBy);
+	}
 }
 	
 
