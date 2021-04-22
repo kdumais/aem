@@ -24,6 +24,14 @@ public class InboxPage  {
 	public By completeButtonBy = By.xpath("//coral-button-label[contains(text(),'Complete')]");
 	public By reassignButtonBy = By.xpath("//coral-button-label[contains(text(),'Re-assign')]");
 	public By openButtonBy = By.xpath("//coral-button-label[contains(text(),'Open')]");
+	//Create Tasks
+	public By createButtonBy = By.xpath("//coral-button-label[contains(text(),'Create')]");
+	public By createTaskBy = By.xpath("//coral-list-item-content[contains(text(), 'Task')]");
+	public By titleBy = By.xpath("//input[@name='name']");
+	public By projectBy = By.xpath("//coral-select[@name='projectPath']");
+	public By assigneeBy = By.xpath("//div[@id='coral-2']//button");
+	public By descriptionBy = By.xpath("//textarea[@name='description']");
+	public By priorityBy = By.xpath("//coral-select[@name='taskPriority']");
 		
 	public InboxPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -85,6 +93,43 @@ public class InboxPage  {
 	public void clickOpenButton() {
 		ut.click(openButtonBy);
 	}
+	
+	public void clickCreateButton() {
+		ut.click(createButtonBy);
+	}
+	
+	public void clickCreateTask() {
+		ut.click(createTaskBy);
+	}
+	
+	public void setTitle(String text) {
+		ut.sendKeys(titleBy, text);
+	}
+	
+	public void setAssignee(String text) {
+		ut.click(assigneeBy);
+		By choiceBy = By.xpath("//li[@data-display='"+text+"']");
+		ut.click(choiceBy); 
+	}
+	
+	public void setProject(String text) {
+		ut.click(projectBy);
+		By choiceBy = By.xpath("//coral-selectlist-item[contains(text(), '"+text+"')]");
+		ut.click(choiceBy);
+	}
+	
+	public void setDescription(String text) {
+		ut.sendKeys(descriptionBy, text);
+	}
+	
+	public void setPriority(String text) {
+		ut.click(priorityBy);
+		By choiceBy = By.xpath("//coral-selectlist-item[contains(text(),'"+text+"')]");
+		ut.click(choiceBy);
+	}
+	
+	
+	
 }
 	
 

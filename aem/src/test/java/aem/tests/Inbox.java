@@ -66,7 +66,7 @@ public class Inbox extends BaseTest {
 		ip.clickInboxIcon();
 		ip.clickViewAll();
 		ip.assertHowManyRows(4);
-		ip.selectRow(1);
+		//ip.selectRow(1);
 		ip.assertTitle(1, "Configure Analytics & Targeting");
 		ip.assertTitle(4, "Configure HTTPS");
 		ip.assertPriority(1, "Medium");
@@ -75,9 +75,16 @@ public class Inbox extends BaseTest {
 		ip.assertDescription(3, "You can opt in for aggregated usage statistics collection by enabling it for all users");
 		ip.assertAssignee(2, "administrators");
 		ip.assertStatus(1, "Active");
-		ip.clickCompleteButton();
+		//ip.clickCompleteButton();
 		//ip.clickReassignButton();
 		//ip.clickOpenButton();
+		ip.clickCreateButton();
+		ip.clickCreateTask();
+		ip.setTitle("My Title");
+		ip.setProject("Project Title");
+		ip.setAssignee("Administrator");
+		ip.setDescription("My Description");
+		ip.setPriority("Medium");
 		
 		ut.sleep(5000);
 	}
