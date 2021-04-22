@@ -32,6 +32,8 @@ public class InboxPage  {
 	public By assigneeBy = By.xpath("//div[@id='coral-2']//button");
 	public By descriptionBy = By.xpath("//textarea[@name='description']");
 	public By priorityBy = By.xpath("//coral-select[@name='taskPriority']");
+	public By startDateBy = By.xpath("//coral-datepicker[@name='taskStartDate']/input[@type='text']");
+	public By dueDateBy = By.xpath("//coral-datepicker[@name='taskDueDate']/input[@type='text']");
 		
 	public InboxPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -126,6 +128,14 @@ public class InboxPage  {
 		ut.click(priorityBy);
 		By choiceBy = By.xpath("//coral-selectlist-item[contains(text(),'"+text+"')]");
 		ut.click(choiceBy);
+	}
+	
+	public void setStartDate(String text) {
+		ut.sendKeys(startDateBy, text);
+	}
+	
+	public void setDueDate(String text) {
+		ut.sendKeys(dueDateBy, text);
 	}
 	
 	

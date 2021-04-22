@@ -85,6 +85,8 @@ public class Inbox extends BaseTest {
 		ip.setAssignee("Administrator");
 		ip.setDescription("My Description");
 		ip.setPriority("Medium");
+		ip.setStartDate("2021-04-22 10:49");
+		ip.setDueDate("2021-12-22 10:49");
 		
 		ut.sleep(5000);
 	}
