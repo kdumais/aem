@@ -38,6 +38,9 @@ public class InboxPage  {
 	public By taskCreatedHeaderBy = By.xpath("//coral-dialog-header");
 	public By taskCreatedContentBy = By.xpath("//coral-dialog-content");
 	public By taskCreateDoneButtonBy = By.xpath("//coral-button-label[contains(text(), 'Done')]");
+	public By taskCompleteCommentBy = By.xpath("//textarea[@name='comment']");
+	public By taskCopmleteButtonBy = By.xpath("//coral-dialog-footer//coral-button-label[contains(text(), 'Complete')]");
+	public By taskCopmleteCancelButtonBy = By.xpath("//coral-dialog-footer//coral-button-label[contains(text(), 'Cancel')]");
 		
 	public InboxPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -156,6 +159,14 @@ public class InboxPage  {
 	
 	public void clickCreateTaskDoneButton() {
 		ut.click(taskCreateDoneButtonBy);
+	}
+	
+	public void setTaskCompleteComment(String text) {
+		ut.sendKeys(taskCompleteCommentBy, text);
+	}
+	
+	public void clickTaskCompleteButton() {
+		ut.click(taskCopmleteButtonBy);
 	}
 	
 }

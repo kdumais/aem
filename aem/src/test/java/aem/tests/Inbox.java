@@ -66,7 +66,6 @@ public class Inbox extends BaseTest {
 		ip.clickInboxIcon();
 		ip.clickViewAll();
 		ip.assertHowManyRows(4);
-		//ip.selectRow(1);
 		ip.assertTitle(1, "Configure Analytics & Targeting");
 		ip.assertTitle(4, "Configure HTTPS");
 		ip.assertPriority(1, "Medium");
@@ -94,6 +93,10 @@ public class Inbox extends BaseTest {
 		
 		ip.selectRow(1);
 		ip.clickCompleteButton();
+		ip.setTaskCompleteComment("Complete Task Comment");
+		ip.clickTaskCompleteButton();
+		ut.sleep(1000);
+		ip.assertHowManyRows(4);
 		
 		ut.sleep(5000);
 	}
