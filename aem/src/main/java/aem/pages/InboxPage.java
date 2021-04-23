@@ -34,6 +34,10 @@ public class InboxPage  {
 	public By priorityBy = By.xpath("//coral-select[@name='taskPriority']");
 	public By startDateBy = By.xpath("//coral-datepicker[@name='taskStartDate']/input[@type='text']");
 	public By dueDateBy = By.xpath("//coral-datepicker[@name='taskDueDate']/input[@type='text']");
+	public By submitButtonBy = By.xpath("//coral-button-label[contains(text(), 'Submit')]");
+	public By taskCreatedHeaderBy = By.xpath("//coral-dialog-header");
+	public By taskCreatedContentBy = By.xpath("//coral-dialog-content");
+	public By taskCreateDoneButtonBy = By.xpath("//coral-button-label[contains(text(), 'Done')]");
 		
 	public InboxPage(WebDriver driver, Properties prop)  { 
 		this.driver=driver;
@@ -138,7 +142,21 @@ public class InboxPage  {
 		ut.sendKeys(dueDateBy, text);
 	}
 	
+	public void clickSubmitButton() {
+		ut.click(submitButtonBy);
+	}
 	
+	public void assertCreateTaskHeader(String expected) {
+		Assert.assertEquals(ut.getElement(taskCreatedHeaderBy).getText(), expected);
+	}
+	
+	public void assertCreateTaskContent(String expected) {
+		Assert.assertEquals(ut.getElement(taskCreatedContentBy).getText(), expected);
+	}
+	
+	public void clickCreateTaskDoneButton() {
+		ut.click(taskCreateDoneButtonBy);
+	}
 	
 }
 	

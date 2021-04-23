@@ -87,6 +87,13 @@ public class Inbox extends BaseTest {
 		ip.setPriority("Medium");
 		ip.setStartDate("2021-04-22 10:49");
 		ip.setDueDate("2021-12-22 10:49");
+		ip.clickSubmitButton();
+		ip.assertCreateTaskHeader("Task Created");
+		ip.assertCreateTaskContent("Task My Title has been created");
+		ip.clickCreateTaskDoneButton();
+		
+		ip.selectRow(1);
+		ip.clickCompleteButton();
 		
 		ut.sleep(5000);
 	}
